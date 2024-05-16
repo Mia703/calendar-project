@@ -1,0 +1,118 @@
+/* =================== imported fonts =================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+/* ---------- sub-header ---------- */
+
+/* =================== global variables =================== */
+:root {
+	--primary-font-colour: #20262E;
+	--primary-background-colour: #703E50;
+	--primary-accent-burgundy: #862049;
+	--primary-accent-pink: #D27097;
+	--primary-accent-white: #FAF7F8;
+}
+
+/* =================== reset default styles =================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =================== base page styles =================== */
+body {
+	font-family: "Inter", sans-serif;
+	color: var(--primary-accent-white);
+	font-size: 1em;
+}
+
+/* =================== font styles =================== */
+h1 {
+	font-size: 1.5em;
+	font-weight: 500;
+}
+
+h2 {
+	font-size: 1em;
+	font-weight: 400;
+}
+
+h3 {
+	font-size: 0.9em;
+	font-weight: 400;
+}
+
+p {
+	font-size: 0.8em;
+	font-weight: 400;
+}
+
+a {
+	color: var(--primary-accent-white);
+}
+/* =================== constants =================== */
+
+/* =================== media queries =================== */
+#main-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	min-height: 100vh;
+	min-width: 100vw;
+}
+
+.login-content-container {
+	grid-column: span 4;
+	background-color: var(--primary-background-colour);
+	text-align: center;
+}
+
+.login-content-container > div {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.login-content-container > div h1 {
+	margin-bottom: 0.3rem;
+}
+
+.login-content-container > div form {
+	margin: .8rem 0;
+}
+
+input {
+	border: solid 2px var(--primary-accent-pink);
+	padding: 1px 5px;
+}
+
+button {
+	background-color: var(--primary-accent-pink);
+	border: 2px solid var(--primary-accent-pink);
+	padding: 1px 5px;
+	color: var(--primary-accent-white);
+	font-weight: 600;
+}
+
+/* =================== TABLET =================== */
+@media only screen and (min-width: 40.063em) {
+	#main-grid {
+		grid-template-columns: repeat(6, 1fr);
+	}
+}
+
+/* =================== DESKTOP =================== */
+@media only screen and (min-width: 64.063em) {
+	#main-grid {
+		grid-template-columns: repeat(12, 1fr);
+	}
+}
+
+/* =================== XL DESKTOP AND BEYOND =================== */
+@media only screen and (min-width: 90.063em) {
+	#main-grid {
+		grid-template-columns: repeat(12, 1fr);
+	}
+}

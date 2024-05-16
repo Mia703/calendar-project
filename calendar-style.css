@@ -1,0 +1,102 @@
+/* =================== imported fonts =================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+/* ---------- sub-header ---------- */
+
+/* =================== global variables =================== */
+:root {
+	--primary-font-colour: #20262E;
+	--primary-background-colour-purple: #703E50;
+	--primary-accent-mauve: #862049;
+	--primary-accent-pink: #D27097;
+	--primary-accent-white: #FAF7F8;
+	--primary-accent-green: #C1CD74;
+}
+
+/* =================== reset default styles =================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =================== base page styles =================== */
+body {
+	font-family: "Inter", sans-serif;
+	font-size: 1em;
+	background-color: var(--primary-accent-white);
+	min-height: 100vh;
+	padding: 1rem;
+}
+
+/* =================== font styles =================== */
+
+/* =================== constants =================== */
+#main-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 10px;
+}
+
+.calendar-container {
+	grid-column: span 4;
+	color: var(--primary-accent-mauve);
+	padding: 0.5rem;
+}
+
+.calendar {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 100%;
+	height: 100%;
+}
+
+.calendar .month {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	text-transform: capitalize;
+}
+
+.calendar .month > button {
+	background-color: var(--primary-accent-white);
+	border: none;
+	color: var(--primary-accent-mauve);
+	cursor: pointer;
+}
+
+.calendar .month > button span {
+	font-size: 1.3em;
+}
+
+.calendar .weekdays {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	text-transform: capitalize;
+	padding: 0 20px;
+}
+
+.calendar .days {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	font-weight: 500;
+}
+
+.calendar .days .day {
+	border: 1px solid var(--primary-font-colour);
+	width: 14.28%;
+	height: 90px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+/* =================== media queries =================== */
