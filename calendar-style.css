@@ -10,13 +10,14 @@
 	--primary-accent-pink: #D27097;
 	--primary-accent-white: #FAF7F8;
 	--primary-accent-green: #C1CD74;
+	--primary-accent-grey: #a07687;
 }
 
 /* =================== reset default styles =================== */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 /* =================== base page styles =================== */
@@ -60,14 +61,14 @@ body {
 	text-transform: capitalize;
 }
 
-.calendar .month > button {
+.calendar .month>button {
 	background-color: var(--primary-accent-white);
 	border: none;
 	color: var(--primary-accent-mauve);
 	cursor: pointer;
 }
 
-.calendar .month > button span {
+.calendar .month>button span {
 	font-size: 1.3em;
 }
 
@@ -82,21 +83,76 @@ body {
 }
 
 .calendar .days {
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	font-weight: 500;
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	gap: 0px;
 }
 
-.calendar .days .day {
-	border: 1px solid var(--primary-font-colour);
-	width: 14.28%;
-	height: 90px;
+.calendar .day {
+	grid-column: span 1;
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
+
+}
+
+.calendar .day.weekday {
+	flex-direction: row;
+	text-transform: capitalize;
+	padding: 1rem 0;
+}
+
+.calendar .day:not(.weekday) {
+	height: 90px;
+	border: 1px solid var(--primary-accent-mauve);
+	flex-direction: column;
 	align-items: center;
+}
+
+.calendar .day:not(.weekday, .prev-day, .next-day):hover {
+	cursor: pointer;
+	background-color: var(--primary-accent-pink);
+	color: var(--primary-accent-white);
+}
+
+.calendar .days .prev-day,
+.calendar .days .next-day {
+	color: var(--primary-accent-grey);
+}
+
+.calendar .days .active {
+	position: relative;
+	font-size: 2em;
+	color: var(--primary-accent-white);
+	background-color: var(--primary-accent-pink);
+}
+
+.calendar .days .active::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	box-shadow: 0 0 10px 2px var(--primary-accent-pink);
+}
+
+.calendar .days .today {
+	font-size: 2em;
+}
+
+.calendar .days .event {
+	position: relative;
+}
+
+.calendar .days .event::after {
+	content: "";
+	position: absolute;
+	bottom: 10%;
+	left: 50%;
+	width: 75%;
+	height: 6px;
+	border-radius: 30px;
+	transform: translateX(-50%);
+	background-color: var(--primary-accent-mauve);
 }
 /* =================== media queries =================== */
