@@ -7,6 +7,9 @@
 	<link rel="stylesheet"
 		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 	<link rel="stylesheet" href="calendar-style.css">
+	<!-- jquerycdn -->
+	<script src="https://code.jquery.com/jquery-3.7.1.js"
+		integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 	<title>SimplyTasks</title>
 </head>
 
@@ -15,69 +18,68 @@
 		<div class="navigation-container"></div>
 		<div class="calendar-container">
 			<div class="calendar">
-				<div class="calendar-header month">
-					<button class="left prev" type="button">
+				<div class="container month">
+					<button id="prevButton" class="left prev" type="button">
 						<span class="material-symbols-outlined">
 							arrow_back_ios
 						</span>
 					</button>
-					<div class="date">november 2022</div>
-					<button class="right next" type="button">
+					<div id="currMonth" class="date"></div>
+					<button id="nextButton" class="right next" type="button">
 						<span class="material-symbols-outlined">
 							arrow_forward_ios
 						</span>
 					</button>
 				</div>
-				<div class="calendar-body">
-					<div class="days">
-						<div class="day weekday">sun</div>
-						<div class="day weekday">mon</div>
-						<div class="day weekday">tue</div>
-						<div class="day weekday">wed</div>
-						<div class="day weekday">thu</div>
-						<div class="day weekday">fri</div>
-						<div class="day weekday">sat</div>
-						<div class="day prev-day">30</div>
-						<div class="day prev-day">31</div>
-						<div class="day">1</div>
-						<div class="day">2</div>
-						<div class="day">3</div>
-						<div class="day">4</div>
-						<div class="day">5</div>
-						<div class="day event">6</div>
-						<div class="day">7</div>
-						<div class="day">8</div>
-						<div class="day">9</div>
-						<div class="day">10</div>
-						<div class="day">11</div>
-						<div class="day">12</div>
-						<div class="day">13</div>
-						<div class="day active">14</div>
-						<div class="day today">15</div>
-						<div class="day">16</div>
-						<div class="day">17</div>
-						<div class="day">18</div>
-						<div class="day">19</div>
-						<div class="day">20</div>
-						<div class="day event">21</div>
-						<div class="day">22</div>
-						<div class="day">23</div>
-						<div class="day">24</div>
-						<div class="day">25</div>
-						<div class="day">26</div>
-						<div class="day">27</div>
-						<div class="day">28</div>
-						<div class="day">29</div>
-						<div class="day">30</div>
-						<div class="day next-day">1</div>
-						<div class="day next-day">2</div>
-						<div class="day next-day">3</div>
+				<div class="container days">
+					<div class="weekday-container">
+						<div class="weekday">sun</div>
+						<div class="weekday">mon</div>
+						<div class="weekday">tue</div>
+						<div class="weekday">wed</div>
+						<div class="weekday">thu</div>
+						<div class="weekday">fri</div>
+						<div class="weekday">sat</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="task-container"></div>
+		<div class="task-container">
+			<div class="task-container header">
+				<h2>Sunday</h2>
+				<h3>April 13, 2024</h3>
+			</div>
+			<div class="tasks">
+				<div class="task">
+					<div class="content">
+						<p class="title">Go to Store</p>
+						<p class="time">9:00 AM - 10:00 AM</p>
+					</div>
+					<div class="trash-container">
+						<button type="button" class="trash">
+							<span class="material-symbols-outlined">
+								delete
+							</span>
+						</button>
+					</div>
+				</div>
+				<div class="task">
+					<div class="content">
+						<p class="title">Go to Store</p>
+						<p class="time">9:00 AM - 10:00 AM</p>
+					</div>
+					<div class="trash-container">
+						<button type="button" class="trash">
+							<span class="material-symbols-outlined">
+								delete
+							</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
+	<script src="calendar-script.js"></script>
 </body>
 
 </html>

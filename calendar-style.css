@@ -30,14 +30,31 @@ body {
 }
 
 /* =================== font styles =================== */
+h1 {
+	font-size: 2em;
+}
 
+h2 {
+	font-size: 1.3em;
+}
+
+h3 {
+	font-size: 1em;
+}
+
+p {
+	font-size: 1em;
+}
 /* =================== constants =================== */
+
+/* ---------- main-grid ---------- */
 #main-grid {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	gap: 10px;
 }
 
+/* ---------- calendar ---------- */
 .calendar-container {
 	grid-column: span 4;
 	color: var(--primary-accent-mauve);
@@ -52,6 +69,7 @@ body {
 	height: 100%;
 }
 
+/* calendar header */
 .calendar .month {
 	display: flex;
 	flex-direction: row;
@@ -61,54 +79,65 @@ body {
 	text-transform: capitalize;
 }
 
-.calendar .month>button {
+/* prev and next buttons */
+.calendar .month > button {
 	background-color: var(--primary-accent-white);
 	border: none;
 	color: var(--primary-accent-mauve);
 	cursor: pointer;
 }
 
-.calendar .month>button span {
+.calendar .month > button:hover {
+	color: var(--primary-accent-pink);
+}
+
+.calendar .month > button span {
 	font-size: 1.3em;
 }
 
-.calendar .weekdays {
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	text-transform: capitalize;
-	padding: 0 20px;
+/* calendar month header */
+.calendar .date {
+	font-weight: 600;
 }
 
+/* days container */
 .calendar .days {
 	display: grid;
 	grid-template-columns: repeat(7, 1fr);
 	gap: 0px;
 }
 
+/* weekdays container */
+.calendar .days .weekday-container {
+	grid-column: span 7;
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	gap: 0px;
+}
+
+.calendar .days .weekday-container div {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	text-transform: capitalize;
+	padding: 1rem 0 0.5rem;
+	font-size: 0.8em;
+}
+
+/* calendar day elements */
 .calendar .day {
 	grid-column: span 1;
-	display: flex;
-	justify-content: center;
-
-}
-
-.calendar .day.weekday {
-	flex-direction: row;
-	text-transform: capitalize;
-	padding: 1rem 0;
-}
-
-.calendar .day:not(.weekday) {
-	height: 90px;
+	min-height: 45px;
+	max-height: 90px;
 	border: 1px solid var(--primary-accent-mauve);
-	flex-direction: column;
-	align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: flex-start;
+	padding: 0.3rem;
 }
 
-.calendar .day:not(.weekday, .prev-day, .next-day):hover {
+.calendar .day:not(.prev-day, .next-day):hover {
 	cursor: pointer;
 	background-color: var(--primary-accent-pink);
 	color: var(--primary-accent-white);
@@ -119,6 +148,7 @@ body {
 	color: var(--primary-accent-grey);
 }
 
+/* selected date */
 .calendar .days .active {
 	position: relative;
 	font-size: 2em;
@@ -126,33 +156,95 @@ body {
 	background-color: var(--primary-accent-pink);
 }
 
-.calendar .days .active::before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	box-shadow: 0 0 10px 2px var(--primary-accent-pink);
-}
-
+/* today's date */
 .calendar .days .today {
 	font-size: 2em;
+	background-color: rgba(210, 112, 151, 65%);
 }
 
+/* day's with events */
 .calendar .days .event {
 	position: relative;
 }
 
+/* TODO: change to dot */
+/* adds the event bar */
 .calendar .days .event::after {
 	content: "";
 	position: absolute;
-	bottom: 10%;
+	bottom: 15%;
 	left: 50%;
 	width: 75%;
 	height: 6px;
 	border-radius: 30px;
 	transform: translateX(-50%);
 	background-color: var(--primary-accent-mauve);
+}
+
+.calendar .event:hover::after {
+	background-color: var(--primary-accent-white);
+}
+
+.calendar .active.event::after {
+	background-color: var(--primary-accent-white);
+	bottom: 12%;
+}
+
+.calendar .active.event {
+	padding-bottom: 10px;
+}
+
+/* ---------- task list ---------- */
+.task-container {
+	grid-column: span 4;
+	color: var(--primary-accent-mauve);
+}
+
+.task-container .header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-end;
+	margin-bottom: 1rem;
+}
+
+/* tasks container */
+.tasks {
+	display: flex;
+	flex-direction: column;
+}
+
+.task {
+	background-color: var(--primary-accent-pink);
+	color: var(--primary-accent-white);
+	display: grid;
+	grid-template-columns: 1fr min-content;
+	font-size: 0.8em;
+	margin-bottom: 0.5rem;
+}
+
+.task .content {
+	padding: 0.5rem 0.5rem 0.5rem 1rem;
+}
+
+.task .content .title {
+	font-weight: 600;
+}
+
+.task .content .time {
+	font-weight: 500;
+}
+
+.task .trash-container button {
+	background-color: var(--primary-accent-mauve);
+	border: none;
+	color: var(--primary-accent-white);
+	height: 100%;
+	padding: 0 0.5rem;
+	cursor: pointer;
+}
+
+.task .trash-container button:hover {
+	background-color: var(--primary-accent-green);
 }
 /* =================== media queries =================== */

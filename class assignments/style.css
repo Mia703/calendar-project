@@ -1,50 +1,123 @@
 /* =================== imported fonts =================== */
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 /* ---------- sub-header ---------- */
 
 /* =================== global variables =================== */
-:root {
-	--primary-background: #16161a;
-	--primary-green: #2cb67d;
-}
+:root {}
 
 /* =================== reset default styles =================== */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 /* =================== base page styles =================== */
 body {
-	background-color: var(--primary-background);
+	width: 100%;
+	height: 100vh;
+	background-color: black;
+	color: white;
+	font-size: 1em;
+	font-family: "Inter", sans-serif;
+	font-weight: 450;
 }
+
 /* =================== font styles =================== */
-
-/* =================== constants =================== */
-#grid {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	gap: 10px;
+h1 {
+	font-weight: 700;
+	font-size: 1.5em;
 }
 
-.button-container {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
+p {
+	font-size: 1em;
+}
+
+.header {
+	font-size: 1em;
+	font-weight: 600;
+}
+
+.content {
+	font-size: 1em;
+	width: 30ch;
+}
+
+.header, .content {
+	padding-bottom: 0.5rem;
+}
+/* =================== constants =================== */
+img {
+	width: 100%;
+}
+
+/* =================== media queries =================== */
+#main-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: min-content;
+	gap: 10px;
+	padding: 1rem;
+	background-color: rgba(16, 16, 16, 0.501);
 	height: 100vh;
 }
 
-#doggyButton {
-	background-color: var(--primary-green);
-	border: 4px solid var(--primary-green);
-	padding: 1rem 2rem;
-	font-weight: 600;
-	font-size: 2em;
+/* ---------- background image ---------- */
+.background-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	z-index: -10;
+	background-image: url("./assets/Wyll.JPG");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-position-x: -30rem;
 }
 
-#doggyButton:hover {
-	border-color: white;
-	cursor: pointer;
+.background-container img {
+	width: 100%;
+	object-fit: fill;
+}
+
+/* ---------- navigation container ---------- */
+.navigation-container {
+	grid-column: span 4;
+}
+
+/* ---------- cat information ---------- */
+.cat-information-container {
+	grid-column: span 4;
+}
+
+.basic-information div,
+.health-information div,
+.behavioural-information div {
+	display: grid;
+	grid-template-columns: min-content max-content;
+	column-gap: 1rem;
+}
+
+
+/* =================== TABLET =================== */
+@media only screen and (min-width: 40.063em) {
+	#main-grid {
+		grid-template-columns: repeat(6, 1fr);
+	}
+	.navigation-container {
+		grid-column: span 6;
+	}
+	.cat-information-container {
+		grid-column: span 6;
+	}
+}
+
+/* =================== DESKTOP =================== */
+@media only screen and (min-width: 64.063em) {
+	.background-container {
+		background-position: center;
+	}
 }

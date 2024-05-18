@@ -4,24 +4,92 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="author" content="Amya Moore">
+	<meta name="author" content="Amya N Moore">
 	<link rel="stylesheet" href="style.css">
-	<title>Grab a Dog!</title>
+	<script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"
+		integrity="sha256-J8ay84czFazJ9wcTuSDLpPmwpMXOm573OUtZHPQqpEU=" crossorigin="anonymous"></script>
+	<title>Wyll | My Favourite Animal</title>
 </head>
 
 <body>
-	<div id="grid">
-		<div class="button-container">
-			<button id="doggyButton" type="button" onclick="doggyGetter()">
-				GET DOG
-			</button>
+	<div class="background-container">
+	</div>
+	<div id="main-grid">
+		<div class="navigation-container">
+			<nav id="main-nav">
+				<div class="logo">
+					<h1><a href="#">Wyll</a></h1>
+				</div>
+			</nav>
 		</div>
-		<div class="picture-container">
-			<img id="picture" src="" alt="doggy picture" srcset="">
-			<p id="error"></p>
+		<div class="cat-information-container">
+			<table>
+				<tr>
+					<td class="header">Name</td>
+					<td class="content">Wyll</td>
+				</tr>
+				<tr>
+					<td class="header">Age</td>
+					<td class="content">7 years</td>
+				</tr>
+				<tr>
+					<td class="header">Gender</td>
+					<td class="content">Male</td>
+				</tr>
+				<tr>
+					<td class="header">Breed</td>
+					<td class="content">Domestic Shorthair</td>
+				</tr>
+				<tr>
+					<td class="header">Color and Markings</td>
+					<td class="content">Dark grey with white markings and paws</td>
+				</tr>
+				<tr>
+					<td class="header">Size</td>
+					<td class="content">Large (20 lbs)</td>
+				</tr>
+				<tr>
+					<td class="header">Spayed/Neutered</td>
+					<td class="content">Yes</td>
+				</tr>
+				<tr>
+					<td class="header">Vaccinations</td>
+					<td class="content">Up-to-date</td>
+				</tr>
+				<tr>
+					<td class="header">Microchipped</td>
+					<td class="content">Yes</td>
+				</tr>
+				<tr>
+					<td class="header">Personality</td>
+					<td class="content">
+						A talkative and curious cat who loves to sleep and eat. He is affectionate and enjoys pets, but
+						will love you instantly
+						if you feed him.
+					</td>
+				</tr>
+				<tr>
+					<td class="header">Compatibility</td>
+					<td class="content">
+						Does not like other cats. Will instigate fights and then proceed to lose said fight.
+					</td>
+				</tr>
+				<tr>
+					<td class="header">Likes</td>
+					<td class="content">
+						Likes windows, paper bag ties, and catnip.
+					</td>
+				</tr>
+				<tr>
+					<td class="header">Dislikes</td>
+					<td class="content">Dislikes loud noises, water, and going outside.</td>
+				</tr>
+			</table>
+			<div class="media-information">
+				<p>More pictures of Wyll</p>
+			</div>
 		</div>
 	</div>
-	<script src="script.js"></script>
 </body>
 
 </html>
