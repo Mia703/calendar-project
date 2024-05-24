@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="layout.css">
+	<link rel="stylesheet" href="pin-style.css">
+		<!-- jquery cdn -->
+		<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+			crossorigin="anonymous"></script>
+	<title>SimplyTasks</title>
+</head>
+<body>
+	<div id="main-grid">
+		<div class="pin container">
+			<h1>Welcome to SimplyTasks</h1>
+			<p>Enter your pin to access your calendar.</p>
+			<form id="pinForm">
+				<input type="text" name="pin" id="pin" maxlength="4">
+				<button type="submit" id="pinSubmitBtn">Submit</button>
+			</form>
+			<a href="new.html">New to SimplyTasks? Or forgot your pin? Signup.</a>
+		</div>
+	</div>
+</body>
+<script src="pin-script.js"></script>
+</html>

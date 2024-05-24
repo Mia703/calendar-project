@@ -1,0 +1,78 @@
+/* =================== imported fonts =================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+/* ---------- sub-header ---------- */
+
+/* =================== global variables =================== */
+:root {
+	--primary-font-colour: #20262E;
+	--primary-background-colour-purple: #703E50;
+	--primary-accent-mauve: #862049;
+	--primary-accent-pink: #D27097;
+	--primary-accent-white: #FAF7F8;
+	--primary-accent-green: #C1CD74;
+	--primary-accent-grey: #a07687;
+}
+
+
+/* =================== form styles =================== */
+#newTaskDialog {
+	display: none;
+}
+
+.ui-widget-content form > div {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 1rem;
+}
+
+.ui-widget-content label {
+	font-size: 0.7em;
+	margin-bottom: 0.2rem;
+	text-transform: uppercase;
+	font-weight: 600;
+}
+
+.ui-widget-content input {
+	padding: 0.2rem;
+	font-size: 1em;
+}
+
+.ui-widget-content form textarea {
+	font-size: 0.9em;
+	padding: 5px;
+}
+.ui-widget-content form .time.container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.ui-widget-content form .time.container > .container {
+	display: flex;
+	flex-direction: column;
+	width: 45%;
+}
+
+.ui-widget-content form .time.container input[type=time] {
+	font-size: .8em;
+}
+
+.ui-widget-content form .title.container input[type=text] {
+	font-size: 0.8em;
+}
+
+.ui-widget-content form .priority > select {
+	padding: 0.2rem;
+	font-size: 0.8em;
+}
+
+.ui-widget-content form button {
+	width: 100%;
+	font-size: 0.8em;
+	font-weight: 600;
+	padding: 0.5rem ;
+	background-color: var(--primary-accent-green);
+	border: none;
+	cursor: pointer;
+}

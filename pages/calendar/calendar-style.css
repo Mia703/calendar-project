@@ -247,4 +247,36 @@ p {
 .task .trash-container button:hover {
 	background-color: var(--primary-accent-green);
 }
+
+/* ---------- add menu ---------- */
+.add-menu-container {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	background-color: var(--primary-background-colour-purple);
+	width: 100%;
+	padding: 0.8rem 1.5rem;
+}
+
+nav.add-menu {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+nav.add-menu button {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: var(--primary-background-colour-purple);
+	border: none;
+	color: var(--primary-accent-white);
+	cursor: pointer;
+}
+
+nav.add-menu button > span {
+	font-size: 1.8em;
+}
 /* =================== media queries =================== */

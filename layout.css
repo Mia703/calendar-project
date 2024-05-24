@@ -1,0 +1,76 @@
+/* =================== imported fonts =================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+/* ---------- sub-header ---------- */
+
+/* =================== global variables =================== */
+:root {
+	--primary-font-colour: #20262E;
+	--primary-background-colour-purple: #703E50;
+	--primary-accent-mauve: #862049;
+	--primary-accent-pink: #D27097;
+	--primary-accent-white: #FAF7F8;
+	--primary-accent-green: #C1CD74;
+	--primary-accent-grey: #a07687;
+}
+
+/* =================== reset default styles =================== */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* =================== base page styles =================== */
+body {
+	font-family: "Inter", sans-serif;
+	font-size: 1em;
+	background-color: var(--primary-accent-white);
+	min-height: 100vh;
+	padding: 1rem;
+}
+
+/* =================== font styles =================== */
+h1 {
+	font-size: 2em;
+}
+
+h2 {
+	font-size: 1.3em;
+}
+
+h3 {
+	font-size: 1em;
+}
+
+p {
+	font-size: 1em;
+}
+
+/* =================== constants =================== */
+
+/* ---------- main-grid ---------- */
+#main-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 10px;
+}
+
+/* =================== media queries =================== */
+/* =================== TABLET =================== */
+@media only screen and (min-width: 40.063em) {
+	#main-grid {
+		grid-template-columns: repeat(6, 1fr);
+	}
+}
+
+/* =================== DESKTOP =================== */
+@media only screen and (min-width: 64.063em) {
+	#main-grid {
+		grid-template-columns: repeat(12, 1fr);
+	}
+}
+
+/* =================== XL DESKTOP AND BEYOND =================== */
+@media only screen and (min-width: 90.063em) {
+	
+}
