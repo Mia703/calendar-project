@@ -151,15 +151,13 @@ p {
 /* selected date */
 .calendar .days .active {
 	position: relative;
-	font-size: 2em;
-	color: var(--primary-accent-white);
-	background-color: var(--primary-accent-pink);
+	background-color: rgba(210, 112, 151, 65%);
 }
 
 /* today's date */
 .calendar .days .today {
-	font-size: 2em;
-	background-color: rgba(210, 112, 151, 65%);
+	background-color: var(--primary-accent-mauve);
+	color: var(--primary-accent-white);
 }
 
 /* day's with events */
@@ -167,7 +165,6 @@ p {
 	position: relative;
 }
 
-/* TODO: change to dot */
 /* adds the event bar */
 .calendar .days .event::after {
 	content: "";
@@ -181,13 +178,16 @@ p {
 	background-color: var(--primary-accent-mauve);
 }
 
+.calendar .days .today.event::after {
+	background-color: var(--primary-accent-white);
+}
+
 .calendar .event:hover::after {
 	background-color: var(--primary-accent-white);
 }
 
 .calendar .active.event::after {
 	background-color: var(--primary-accent-white);
-	bottom: 12%;
 }
 
 .calendar .active.event {
@@ -214,12 +214,12 @@ p {
 	flex-direction: column;
 }
 
-.task {
+.tasks > .task {
 	background-color: var(--primary-accent-pink);
 	color: var(--primary-accent-white);
 	display: grid;
 	grid-template-columns: 1fr min-content;
-	font-size: 0.8em;
+	font-size: 0.85em;
 	margin-bottom: 0.5rem;
 }
 
@@ -227,15 +227,24 @@ p {
 	padding: 0.5rem 0.5rem 0.5rem 1rem;
 }
 
-.task .content .title {
+.task .content > div {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	font-weight: 600;
+	margin-bottom: 0.3rem;
+}
+
+.task .content > .time {
 	font-weight: 600;
 }
 
-.task .content .time {
-	font-weight: 500;
+.task .content > .description {
+	width: 30ch;
+	overflow-wrap: break-word;
 }
 
-.task .trash-container button {
+.task .trash.container button {
 	background-color: var(--primary-accent-mauve);
 	border: none;
 	color: var(--primary-accent-white);
@@ -244,7 +253,7 @@ p {
 	cursor: pointer;
 }
 
-.task .trash-container button:hover {
+.task .trash.container button:hover {
 	background-color: var(--primary-accent-green);
 }
 
