@@ -1,0 +1,154 @@
+/* =================== base page styles =================== */
+
+/* =================== font styles =================== */
+
+/* =================== constants =================== */
+
+/* ---------- navigation section ---------- */
+
+/* hide mobile navigation until clicked */
+section.navigation nav#mobile {
+	display: none;
+}
+
+/* hide desktop navigation */
+section.navigation nav#desktop {
+	display: none;
+}
+
+section.navigation .nav.mobile.container {
+	padding-bottom: 1rem;
+	border-bottom: 2px solid black;
+}
+
+section.navigation .nav.mobile.container,
+section.navigation .nav.mobile.container>div {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+/* hamburger btn */
+section.navigation .nav.mobile.container>div .hamburger {
+	margin-left: 1rem;
+	cursor: pointer;
+	font-size: 2rem;
+}
+
+/* ---------- header section ---------- */
+
+/* hide image container on mobile */
+section.header .image.container {
+	display: none;
+}
+
+/* ---------- about section ---------- */
+
+section.about>.content.container {
+	margin-bottom: 3rem;
+}
+
+/* signup button */
+section.about>.content.container .signup span {
+	padding-left: 5px;
+}
+
+/* jquery accordion widget */
+#accordion {
+	font-family: "Work Sans", sans-serif;
+}
+
+/* ---------- call-out section ---------- */
+/* section.call-out .content.container {
+	a-diamond-tT2DSShVDTI-unsplash.jpg);
+	background-repeat: no-repeat;background-image: url(/assets/eliz
+	background-size: cover;
+	background-position: 50%;
+	border-radius: 5px;
+	width: 100%;
+	padding: 1rem;
+} */
+
+section.call-out>.container {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding: 1rem;
+	background-image: url(/assets/eliza-diamond-tT2DSShVDTI-unsplash.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50%;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+section.call-out .overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 45%);
+	/* allows pointer clicks to pass through the overlay */
+	pointer-events: none;
+}
+
+section.call-out .content.container {
+	position: relative;
+	color: var(--primary-accent-white);
+	z-index: 1;
+}
+
+/* ---------- footer section ---------- */
+
+footer>a.logo {
+	display: block;
+	margin-bottom: 1rem;
+}
+
+footer>.contact.container {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1rem;
+}
+
+footer .contact.container .email,
+footer .contact.container .phone {
+	grid-column: span 1;
+}
+
+footer .contact.container .office {
+	grid-column: span 2;
+}
+
+footer .contact.container .email h2,
+footer .contact.container .phone h2,
+footer .contact.container .office  h2{
+	margin-bottom: 0.3rem;
+}
+
+footer .contact.container .highlight {
+	color: var(--primary-accent-dark-blue);
+	font-weight: 500;
+	text-decoration: underline;
+}
+
+/* attribution container */
+footer .attribution.container {
+	font-size: 0.8em;
+	margin-top: 2rem;
+}
+
+footer .attribution.container p {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: 0;
+}
+
+footer .attribution.container span {
+	margin-right: 5px;
+}
+
+/* =================== media queries =================== */

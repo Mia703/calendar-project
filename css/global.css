@@ -1,0 +1,158 @@
+/* =================== imported fonts =================== */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* ---------- sub-header ---------- */
+
+/* =================== global variables =================== */
+:root {
+	--primary-font-colour: #2D2C38;
+	--primary-accent-white: #FAF7F8;
+	--primary-accent-blue: #007fff;
+	--primary-accent-dark-blue: #193497;
+
+	--primary-background-colour-purple: #703E50;
+	--primary-accent-mauve: #862049;
+	--primary-accent-pink: #D27097;
+	--primary-accent-green: #C1CD74;
+	--primary-accent-grey: #a07687;
+}
+
+/* =================== reset default styles =================== */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* =================== base page styles =================== */
+body {
+	font-family: "Work Sans", sans-serif;
+	font-size: 1em;
+	font-weight: 400;
+	background-color: var(--primary-accent-white);
+	color: var(--primary-font-colour);
+}
+
+/* =================== font styles =================== */
+h1 {
+	font-size: 2em;
+	font-weight: 600;
+	text-transform: capitalize;
+	margin-bottom: 1rem;
+}
+
+h2 {
+	font-size: 1.1em;
+	font-weight: 500;
+}
+
+h3 {
+	font-size: 1em;
+	font-weight: 500;
+}
+
+p {
+	font-size: 1em;
+	margin-bottom: 1rem;
+}
+
+a {
+	color: var(--primary-font-colour);
+	text-decoration: none;
+	font-size: 1em;
+}
+
+span.material-symbols-outlined {
+	font-size: 1em;
+}
+
+button.filled,
+a.filled {
+	background-color: var(--primary-accent-blue);
+	font-weight: 500;
+	text-transform: capitalize;
+	color: var(--primary-accent-white);
+	border: 2px solid var(--primary-accent-blue);
+	padding: 5px 10px;
+	border-radius: 5px;
+	font-size: 0.8em;
+}
+
+button.outlined,
+a.outlined {
+	background-color: white;
+	font-weight: 500;
+	text-transform: capitalize;
+	color: var(--primary-font-colour);
+	border: 2px solid var(--primary-accent-blue);
+	padding: 5px 10px;
+	border-radius: 5px;
+	font-size: 0.8em;
+}
+
+button.filled,
+button.outlined,
+a.filled,
+a.outlined {
+	display: inline-flex;
+	align-items: center;
+}
+
+.logo {
+	font-weight: 700;
+	text-transform: capitalize;
+	font-size: 1.2em;
+	cursor: pointer;
+}
+
+/* =================== constants =================== */
+img {
+	width: 100%;
+}
+
+/* ---------- main-grid ---------- */
+#main-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 10px;
+	padding: 1rem;
+}
+
+#main-grid>section,
+#main-grid>footer {
+	grid-column: span 4;
+}
+
+section {
+	margin: 1rem 0;
+}
+
+footer {
+	margin-top: 1rem;
+}
+
+/* =================== media queries =================== */
+/* =================== TABLET =================== */
+@media only screen and (min-width: 40.063em) {
+	#main-grid {
+		grid-template-columns: repeat(6, 1fr);
+	}
+
+	#main-grid>section {
+		grid-column: span 6;
+	}
+}
+
+/* =================== DESKTOP =================== */
+@media only screen and (min-width: 64.063em) {
+	#main-grid {
+		grid-template-columns: repeat(12, 1fr);
+	}
+
+	#main-grid>section {
+		grid-column: span 12;
+	}
+}
+
+/* =================== XL DESKTOP AND BEYOND =================== */
+@media only screen and (min-width: 90.063em) {}

@@ -1,7 +1,0 @@
-Amya Moore
-Week 7, Assignment 7: Using Plugins and APIs
-
-Create a simple web page that has appropriate styling within an external style sheet.
-The page should be about your favourite animal.
-Include at least one image that shows your favourite animal.
-Visit JQueryUI and add an element from the demo page.

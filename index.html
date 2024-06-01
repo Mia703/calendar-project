@@ -1,27 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="layout.css">
-	<link rel="stylesheet" href="pin-style.css">
-		<!-- jquery cdn -->
-		<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-			crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="css/global.css">
+	<link rel="stylesheet" href="css/homepage.css">
+	<!-- google icons -->
+	<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+	<!-- jquery cdn -->
+	<script src="https://code.jquery.com/jquery-3.7.1.js"
+		integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+	<!-- jquery ui cdn -->
+	<script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"
+		integrity="sha256-J8ay84czFazJ9wcTuSDLpPmwpMXOm573OUtZHPQqpEU=" crossorigin="anonymous"></script>
+	<!-- jquery ui default styling -->
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
 	<title>SimplyTasks</title>
 </head>
+
 <body>
 	<div id="main-grid">
-		<div class="pin container">
-			<h1>Welcome to SimplyTasks</h1>
-			<p>Enter your pin to access your calendar.</p>
-			<form id="pinForm">
-				<input type="text" name="pin" id="pin" maxlength="4">
-				<button type="submit" id="pinSubmitBtn">Submit</button>
-			</form>
-			<a href="new.html">New to SimplyTasks? Or forgot your pin? Sign-up.</a>
-		</div>
+		<section class="navigation">
+			<div class="nav mobile container">
+				<a href="index.html" class="logo">SimplyTasks</a>
+				<div class="container">
+					<a href="signup.html" class="signup-btn mobile filled">Signup</a>
+					<span class="material-symbols-outlined hamburger">
+						menu
+					</span>
+				</div>
+			</div>
+			<nav id="mobile">
+				<ul class="nav-list mobile">
+					<li class="list-item mobile">
+						<a href="#">About Us</a>
+					</li>
+					<li class="list-item mobile">
+						<a href="#">About SimplyTasks</a>
+					</li>
+				</ul>
+			</nav>
+			<nav id="desktop">
+				<a href="index.html" id="logo-desktop">SimplyTasks</a>
+				<ul class="nav-list desktop">
+					<li class="list-item desktop">
+						<a href="#">About Us</a>
+					</li>
+					<li class="list-item desktop">
+						<a href="#">About SimplyTasks</a>
+					</li>
+				</ul>
+				<button type="button" id="signup-btn-desktop">Signup</button>
+			</nav>
+		</section>
+		<section class="header">
+			<div class="header container">
+				<h1>Simply your tasks with SimplyTasks</h1>
+				<p>Stay organised and never miss a deadline with our intuitive calendar and integrated to-do list.</p>
+				<div class="link container">
+					<a href="signup.html" class="get-started filled">Get Started</a>
+					<a href="about.html" class="learn-more outlined">Learn More</a>
+				</div>
+			</div>
+			<div class="image container">
+				<img src="" alt="" class="product image">
+			</div>
+		</section>
+		<section class="about">
+			<div class="content container">
+				<h1>Manage your schedule with ease</h1>
+				<p>
+					SimplyTasks is a powerful calendar with an integrated to-do list that helps you stay on top of your
+					tasks. With our user-friendly interface, that allows you to effortlessly view and manage your
+					schedule
+					you can stay organised and never miss a beat.
+				</p>
+				<div class="container">
+					<a href="about.html" class="learn-more outlined"> Learn More</a>
+					<a href="signup.html" class="signup filled">
+						Signup
+						<span class="material-symbols-outlined">
+							arrow_forward_ios
+						</span>
+					</a>
+				</div>
+			</div>
+			<div id="accordion" class="features container">
+				<h2>Intuitive and user-friendly interface</h2>
+				<div class="feature container">
+					<p>Effortless manage your tasks and schedule in one place.</p>
+				</div>
+				<h2>Secure PIN login for enhanced privacy</h2>
+				<div class="feature container">
+					<p>Protect your personal information with a secure PIN login.</p>
+				</div>
+				<h2>Stay organised with an intuitive task-management system</h2>
+				<div class="feature container">
+					<p>Efficiently manage your tasks with our task-management system.</p>
+				</div>
+			</div>
+		</section>
+		<section class="call-out">
+			<div class="container">
+				<div class="content container">
+					<h1>Simplify your tasks with SimplyTasks</h1>
+					<p>Stay organised and productive with SimplyTasks, the all-in-one calendar and to-do list.</p>
+					<div class="button container">
+						<a href="signup.html" class="filled">Signup</a>
+						<a href="login.html" class="filled">Learn more</a>
+					</div>
+				</div>
+				<div class="overlay"></div>
+			</div>
+		</section>
+		<footer class="footer">
+			<a href="index.html" class="logo footer">SimplyTasks</a>
+			<div class="contact container">
+				<div class="email container">
+					<div class="icon container"></div>
+					<div class="contact content container">
+						<h2>Email</h2>
+						<p>Feel free to reach out to us with any questions or support needs.</p>
+						<a href="mailto:hello@simplytasks.com" class="highlight">hello@simplytasks.com</a>
+					</div>
+				</div>
+				<div class="phone container">
+					<div class="icon container"></div>
+					<div class="contact content container">
+						<h2>Phone</h2>
+						<p>Call us anytime for assistance</p>
+						<a href="tel:+18001231234" class="highlight">+1(800) 123-1234</a>
+					</div>
+				</div>
+				<div class="office container">
+					<div class="icon container"></div>
+					<div class="contact content container">
+						<h2>Office</h2>
+						<p>Visit our office during business hours.</p>
+						<p class="highlight">123 Some Street, <br /> Denver, CO 80210, <br /> United States</p>
+					</div>
+				</div>
+			</div>
+			<div class="attribution container">
+				<p>
+					<span class="material-symbols-outlined">
+						copyright
+					</span>
+					SimplyTasks. All rights reserved.
+				</p>
+			</div>
+		</footer>
 	</div>
+	<script src="js/homepage.js"></script>
 </body>
-<script src="pin-script.js"></script>
+
 </html>

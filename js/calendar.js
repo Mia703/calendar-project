@@ -239,13 +239,13 @@ $(document).ready(function () {
 	$(".tasks").html(hasEvents(year, month, day) ? getEvents(year, month, day) : `<p>No tasks today!</p>`);
 
 	/* ---------- adding a task ---------- */
-
+	// TODO: remember to add back reset function
 	// on click of add task button, display new task dialog form
 	$("#addTaskButton").on("click", function () {
 		// $("#newTaskForm").trigger("reset"); // reset the form values (just in case there's still values there)
 		$("#newTaskDialog").dialog(); // open the form
 	});
-
+	// TODO: remember to add back reset function
 	$("#newTaskForm").on("submit", function (event) {
 		event.preventDefault(); // prevent the default submission
 

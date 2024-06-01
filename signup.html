@@ -4,11 +4,16 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="layout.css">
-	<link rel="stylesheet" href="pin-style.css">
+	<link rel="stylesheet" href="css/global.css">
+	<link rel="stylesheet" href="css/components/pin.css">
 	<!-- jquery cdn -->
 	<script src="https://code.jquery.com/jquery-3.7.1.js"
 		integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+	<!-- jquery ui cdn -->
+	<script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"
+		integrity="sha256-J8ay84czFazJ9wcTuSDLpPmwpMXOm573OUtZHPQqpEU=" crossorigin="anonymous"></script>
+	<!-- jquery ui default styling -->
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
 	<title>SimplyTasks</title>
 </head>
 
@@ -21,9 +26,10 @@
 				<input type="text" name="pin" id="pin" placeholder="Enter your pin" maxlength="4" required>
 				<button type="submit" id="newUserPinSubmitButton">Save Pin</button>
 			</form>
-			<a href="index.html">Already have a pin? Login.</a>
+			<a href="login.html">Already have a pin? Login.</a>
 		</div>
 	</div>
 </body>
-<script src="pin-script.js"></script>
+<script src="js/components/pin.js"></script>
+
 </html>
