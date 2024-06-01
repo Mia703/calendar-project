@@ -73,7 +73,7 @@ a.filled {
 	text-transform: capitalize;
 	color: var(--primary-accent-white);
 	border: 2px solid var(--primary-accent-blue);
-	padding: 5px 10px;
+	padding: 8px 10px;
 	border-radius: 5px;
 	font-size: 1em;
 }
@@ -85,7 +85,7 @@ a.outlined {
 	text-transform: capitalize;
 	color: var(--primary-font-colour);
 	border: 2px solid var(--primary-accent-blue);
-	padding: 5px 10px;
+	padding: 8px 12px;
 	border-radius: 5px;
 	font-size: 1em;
 }

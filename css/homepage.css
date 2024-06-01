@@ -59,6 +59,14 @@ section.about>.content.container .signup span {
 	font-family: "Work Sans", sans-serif;
 }
 
+#accordion > div p {
+	margin-bottom: 0;
+}
+
+.ui-accordion-content {
+	height: max-content;
+}
+
 /* ---------- call-out section ---------- */
 /* section.call-out .content.container {
 	a-diamond-tT2DSShVDTI-unsplash.jpg);
