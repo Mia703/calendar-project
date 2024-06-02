@@ -1,0 +1,102 @@
+/* Contains styling for both login.html and signup.html */
+
+/* =================== base page styles =================== */
+
+/* =================== font styles =================== */
+h1 {
+	font-size: 2em;
+}
+
+/* =================== constants =================== */
+
+section.pin>.container {
+	background-color: white;
+	padding: 1rem;
+	border-radius: 10px;
+	border: 2px solid var(--primary-accent-blue);
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+section.pin>.container form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+section.pin>.container form * {
+	width: 100%;
+}
+
+section.pin>.container form input {
+	border: 2px solid var(--primary-accent-blue);
+	border-radius: 5px;
+	padding: 5px 10px;
+	margin-bottom: 1rem;
+	font-size: 1em;
+	text-align: center;
+}
+
+section.pin>.container form button {
+	margin-bottom: 1rem;
+	transition: background-color 200ms ease-in;
+	cursor: pointer;
+}
+
+section.pin>.container form button:hover {
+	background-color: var(--primary-accent-white);
+	color: var(--primary-font-colour);
+}
+
+section.pin>.container>div {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+section.pin>.container>div p {
+	margin-right: 5px;
+	margin-bottom: 0;
+}
+
+section.pin>.container>div a {
+	border-bottom: 2px solid var(--primary-accent-blue);
+}
+
+/* =================== login.html =================== */
+
+/* =================== signup html =================== */
+
+section.pin>.container>form .name.container {
+	display: inline-flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+section.pin>.container>form .name.container input {
+	width: 48%;
+}
+
+/* =================== media queries =================== */
+
+/* =================== TABLET =================== */
+@media only screen and (min-width: 40.063em) {
+	#main-grid>section.pin {
+		grid-column: 2/6;
+		margin-top: 4rem;
+	}
+}
+
+/* =================== DESKTOP =================== */
+@media only screen and (min-width: 64.063em) {
+	#main-grid>section.pin {
+		grid-column: 5/9;
+	}
+	
+	section.pin > .container {
+		height: 45vh;
+	}
+}
