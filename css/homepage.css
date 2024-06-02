@@ -5,111 +5,7 @@
 /* =================== constants =================== */
 
 /* ---------- navigation section ---------- */
-
-/* hide mobile navigation until clicked */
-section.navigation nav#mobile {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100vh;
-	z-index: 12;
-	display: none;
-}
-
-section.navigation nav#mobile>.content.container {
-	width: 100%;
-	height: 100%;
-	background-color: var(--primary-accent-dark-blue);
-	padding: 1rem;
-
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	text-align: center;
-	align-content: center;
-}
-
-section.navigation nav#mobile * {
-	color: var(--primary-accent-white);
-}
-
-/* close button */
-section.navigation .close.container {
-	text-align: right;
-}
-
-section.navigation .close.container button {
-	padding: 0.4rem;
-	background-color: var(--primary-accent-dark-blue);
-	border: none;
-	cursor: pointer;
-}
-
-section.navigation .close.container span {
-	font-size: 2em;
-}
-
-section.navigation nav#mobile .nav-list {
-	list-style: none;
-	height: 100%;
-	padding: 6rem 0;
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-section.navigation .list-item a:not(.filled) {
-	font-size: 2em;
-}
-
-section.navigation .list-item .filled {
-	font-size: 1.6em;
-	width: 100%;
-}
-
-section.navigation nav#mobile .socials.container {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	margin-bottom: 1rem;
-}
-
-section.navigation nav#mobile .socials.container a {
-	color: rgba(250, 247, 248, 75%);
-}
-
-/* hide desktop navigation */
-section.navigation nav#desktop {
-	display: none;
-}
-
-/* menu header mobile */
-section.navigation .nav.mobile.container {
-	padding-bottom: 1rem;
-	border-bottom: 2px solid var(--primary-font-colour);
-}
-
-section.navigation .nav.mobile.container,
-section.navigation .nav.mobile.container>div {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-}
-
-/* hamburger btn */
-section.navigation .nav.mobile.container button.hamburger {
-	margin-left: 1rem;
-	background-color: var(--primary-accent-white);
-	border: none;
-	cursor: pointer;
-}
-
-section.navigation .nav.mobile.container span {
-	font-size: 2.3rem;
-}
+/* navigation styling found in global.css */
 
 /* ---------- header section ---------- */
 
@@ -232,65 +128,10 @@ footer .attribution.container span {
 /* =================== media queries =================== */
 
 /* =================== TABLET =================== */
-@media only screen and (min-width: 40.063em) {
-
-	/* ---------- navigation section ---------- */
-	section.navigation nav#mobile .nav-list {
-		/* padding: 12rem 0; */
-	}
-
-	section.navigation nav#mobile .socials.container {
-		padding: 0 2rem;
-	}
-}
+@media only screen and (min-width: 40.063em) {}
 
 /* =================== DESKTOP =================== */
 @media only screen and (min-width: 64.063em) {
-
-	/* ---------- navigation section ---------- */
-	section.navigation {
-		margin-bottom: 3rem;
-	}
-
-	/* TODO: remember to display image in section.header */
-
-	/* hide mobile navigation */
-	section.navigation>.nav.mobile.container {
-		display: none;
-	}
-
-	/* show desktop navigation */
-	section.navigation>nav#desktop {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: center;
-	}
-
-	section.navigation>nav#desktop .nav-list.desktop {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-	}
-
-	section.navigation>nav#desktop .nav-list .list-item {
-		list-style: none;
-		margin: 0 1rem;
-	}
-
-	section.navigation>nav#desktop .nav-list .list-item a {
-		font-size: 1em;
-		border-bottom: 2px solid transparent;
-	}
-
-	section.navigation>nav#desktop .nav-list .list-item a.underline {
-		border-color: var(--primary-accent-blue);
-	}
-
-
-	section.navigation>nav#desktop .nav-list .list-item a:hover {
-		border-color: var(--primary-accent-dark-blue);
-	}
 
 	/* ---------- about section ---------- */
 	section.about {
