@@ -36,7 +36,7 @@ body {
 /* =================== font styles =================== */
 h1 {
 	font-size: 2.5em;
-	font-weight: 600;
+	font-weight: 700;
 	text-transform: capitalize;
 	margin-bottom: 1rem;
 }
@@ -76,6 +76,8 @@ a.filled {
 	padding: 8px 10px;
 	border-radius: 5px;
 	font-size: 1em;
+	display: flex;
+	justify-content: center;
 }
 
 button.outlined,
@@ -85,9 +87,11 @@ a.outlined {
 	text-transform: capitalize;
 	color: var(--primary-font-colour);
 	border: 2px solid var(--primary-accent-blue);
-	padding: 8px 12px;
+	padding: 8px 10px;
 	border-radius: 5px;
 	font-size: 1em;
+	display: flex;
+	justify-content: center;
 }
 
 button.filled,
@@ -99,7 +103,7 @@ a.outlined {
 }
 
 .logo {
-	font-weight: 700;
+	font-weight: 600;
 	text-transform: capitalize;
 	font-size: 1.2em;
 	cursor: pointer;
@@ -141,6 +145,50 @@ footer {
 	#main-grid>section {
 		grid-column: span 6;
 	}
+
+	#main-grid>footer {
+		grid-column: span 6;
+	}
+
+	/* =================== font styles =================== */
+	h1 {
+		font-size: 2em;
+	}
+
+	h2 {
+		font-size: 1.2em;
+	}
+
+	h3 {
+		font-size: 1.3em;
+	}
+
+	p {
+		font-size: 1em;
+	}
+
+	a {
+		font-size: 1em;
+	}
+
+	span.material-symbols-outlined {
+		font-size: 1em;
+	}
+
+	button.filled,
+	a.filled {
+		font-size: 1em;
+	}
+
+	button.outlined,
+	a.outlined {
+		font-size: 1em;
+	}
+
+	.logo {
+		font-size: 1.5em;
+	}
+	
 }
 
 /* =================== DESKTOP =================== */
@@ -152,6 +200,13 @@ footer {
 	#main-grid>section {
 		grid-column: span 12;
 	}
+
+	#main-grid>footer {
+		grid-column: span 12;
+	}
+
+	/* =================== font styles =================== */
+	
 }
 
 /* =================== XL DESKTOP AND BEYOND =================== */

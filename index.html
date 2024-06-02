@@ -26,37 +26,80 @@
 				<a href="index.html" class="logo">SimplyTasks</a>
 				<div class="container">
 					<a href="signup.html" class="signup-btn mobile filled">Signup</a>
-					<span class="material-symbols-outlined hamburger">
-						menu
-					</span>
+					<button id="nav-open-btn" class="hamburger">
+						<span class="material-symbols-outlined">
+							menu
+						</span>
+					</button>
 				</div>
 			</div>
 			<nav id="mobile">
-				<ul class="nav-list mobile">
-					<li class="list-item mobile">
-						<a href="#">About Us</a>
-					</li>
-					<li class="list-item mobile">
-						<a href="#">About SimplyTasks</a>
-					</li>
-				</ul>
+				<div class="content container">
+					<div class="close container">
+						<button id="nav-close-btn" class="close button">
+							<span class="material-symbols-outlined">
+								close
+							</span>
+						</button>
+					</div>
+					<ul class="nav-list mobile">
+						<li class="list-item">
+							<a href="index.html">Home</a>
+						</li>
+						<li class="list-item">
+							<a href="#">Product</a>
+						</li>
+						<li class="list-item mobile">
+							<a href="about.html">About</a>
+						</li>
+						<li class="list-item">
+							<a href="#">Career</a>
+						</li>
+						<li class="list-item mobile">
+							<a href="#">Contact</a>
+						</li>
+						<li class="list-item">
+							<a href="login.html">Login</a>
+						</li>
+						<li class="list-item">
+							<a href="signup.html" class="filled">Get Started</a>
+						</li>
+					</ul>
+					<div class="socials container">
+						<a href="#" target="_blank" rel="noopener noreferrer">Facebook</a>
+						<a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
+						<a href="#" target="_blank" rel="noopener noreferrer">Twitter</a>
+					</div>
+				</div>
 			</nav>
 			<nav id="desktop">
-				<a href="index.html" id="logo-desktop">SimplyTasks</a>
+				<a href="index.html" id="logo-desktop" class="logo">SimplyTasks</a>
 				<ul class="nav-list desktop">
-					<li class="list-item desktop">
-						<a href="#">About Us</a>
+					<li class="list-item">
+						<a href="index.html" class="underline">Home</a>
+					</li>
+					<li class="list-item">
+						<a href="#">Product</a>
 					</li>
 					<li class="list-item desktop">
-						<a href="#">About SimplyTasks</a>
+						<a href="about.html">About</a>
+					</li>
+					<li class="list-item">
+						<a href="#">Career</a>
+					</li>
+					<li class="list-item desktop">
+						<a href="#">Contact</a>
 					</li>
 				</ul>
-				<button type="button" id="signup-btn-desktop">Signup</button>
+				<div class="links container desktop">
+					<a href="login.html" class="filled">Login</a>
+					<a href="signup.html" class="outlined">Signup</a>
+				</div>
 			</nav>
 		</section>
 		<section class="header">
 			<div class="header container">
-				<h1>Simply your tasks with SimplyTasks</h1>
+				<h1>Simplify your tasks with SimplyTasks</h1>
 				<p>Stay organised and never miss a deadline with our intuitive calendar and integrated to-do list.</p>
 				<div class="link container">
 					<a href="signup.html" class="get-started filled">Get Started</a>
@@ -64,6 +107,7 @@
 				</div>
 			</div>
 			<div class="image container">
+				<!-- TODO: add photo -->
 				<img src="" alt="" class="product image">
 			</div>
 		</section>
