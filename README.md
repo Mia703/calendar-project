@@ -16,6 +16,6 @@ The following pages need to be implemented:
 - Product
 - About - done; html and css validation - done (alls good)
 - Career
-- Contact - in progress
-- Login - done; html and css validation - in progress
-- Signup - done; html and css validation - in progress
+- Contact - not started
+- Login - done; html and css validation - done (alls good)
+- Signup - done; html and css validation - done (alls good)
