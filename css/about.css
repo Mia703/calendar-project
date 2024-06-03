@@ -1,9 +1,130 @@
-
 /* =================== base page styles =================== */
 
 /* =================== font styles =================== */
+h1 {
+	text-transform: uppercase;
+}
 
 /* =================== constants =================== */
 
+/* ---------- image container div ---------- */
+section.about .image.container {
+	margin-top: 2rem;
+}
+
+section.about .image.container img {
+	border-radius: 10px;
+}
+
+/* ---------- quote div ---------- */
+section.about .quote.container {
+	padding: 4rem 0;
+	text-align: center;
+}
+
+section.about .quote.container .quote {
+	font-weight: 700;
+	font-style: italic;
+	font-size: 2em;
+}
+
+section.about .quote.quote.container .author {
+	font-weight: 400;
+	color: grey;
+	font-size: 0.9em;
+}
+
+/* ---------- our team div ---------- */
+section.about .team.container .team {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+section.about .team.container .team .member {
+	width: 100%;
+}
+
+section.about .team.container .team .member:not(:last-child) {
+	margin-bottom: 1.5rem;
+}
+
+section.about .team.container .team .member .image {
+	width: 100%;
+	height: 300px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center 20%;
+	margin-bottom: 1rem;
+	border-radius: 10px;
+}
+
+section.about .team.container .team .member>p {
+	font-weight: 500;
+	text-align: center;
+}
+
+section.about .team.container .team .member>p span {
+	font-style: italic;
+}
+
+section.about .team.container .team .member:first-child>.image {
+	background-image: url(/assets/prince-akachi-LWkFHEGpleE-unsplash.jpg);
+}
+
+section.about .team.container .team .member:nth-child(2)>.image {
+	background-image: url(/assets/prince-akachi-4Yv84VgQkRM-unsplash.jpg);
+}
+
+section.about .team.container .team .member:last-child>.image {
+	background-image: url(/assets/prince-akachi-i2hoD-C2RUA-unsplash.jpg);
+}
+
+
 
 /* =================== media queries =================== */
+/* =================== TABLET =================== */
+@media only screen and (min-width: 40.063em) {
+
+	section.about .team.container .team {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 10px;
+		align-items: flex-start;
+	}
+}
+
+/* =================== DESKTOP =================== */
+@media only screen and (min-width: 64.063em) {
+
+	section.about {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1rem;
+	}
+
+	section.about .header.container,
+	section.about .quote.container {
+		margin-bottom: 4rem;
+		padding: 0 3rem;
+	}
+
+	section.about .header.container .image.container {
+		display: none;
+	}
+
+	section.about .team.container {
+		grid-column: span 2;
+	}
+
+	section.about .team.container .team .member .image {
+		width: 100%;
+		height: 500px;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center 20%;
+		margin-bottom: 1rem;
+		border-radius: 10px;
+	}
+}
