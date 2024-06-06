@@ -9,12 +9,10 @@
 	--primary-accent-white: #FAF7F8;
 	--primary-accent-blue: #007fff;
 	--primary-accent-dark-blue: #193497;
-
-	--primary-background-colour-purple: #703E50;
-	--primary-accent-mauve: #862049;
-	--primary-accent-pink: #D27097;
-	--primary-accent-green: #C1CD74;
-	--primary-accent-grey: #a07687;
+	--primary-accent-grey: #8289a3;
+	--primary-accent-bright-blue: #0040f4;
+	
+	--primary-accent-light-blue: #00abf3;
 }
 
 /* =================== reset default styles =================== */
@@ -244,6 +242,7 @@ section.navigation .nav.mobile.container span {
 }
 
 /* =================== media queries =================== */
+
 /* =================== TABLET =================== */
 @media only screen and (min-width: 40.063em) {
 	#main-grid {
@@ -264,11 +263,11 @@ section.navigation .nav.mobile.container span {
 	}
 
 	h2 {
-		font-size: 1.2em;
+		font-size: 1.3em;
 	}
 
 	h3 {
-		font-size: 1.3em;
+		font-size: 1.2em;
 	}
 
 	p {
@@ -298,9 +297,6 @@ section.navigation .nav.mobile.container span {
 	}
 
 	/* ---------- navigation section tablet ---------- */
-	section.navigation nav#mobile .nav-list {
-		/* padding: 12rem 0; */
-	}
 
 	section.navigation nav#mobile .socials.container {
 		padding: 0 2rem;
@@ -368,6 +364,3 @@ section.navigation .nav.mobile.container span {
 		border-color: var(--primary-accent-dark-blue);
 	}
 }
-
-/* =================== XL DESKTOP AND BEYOND =================== */
-@media only screen and (min-width: 90.063em) {}
