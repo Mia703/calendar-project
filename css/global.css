@@ -8,11 +8,11 @@
 	--primary-font-colour: #2D2C38;
 	--primary-accent-white: #FAF7F8;
 	--primary-accent-blue: #007fff;
+	--primary-accent-light-blue: #00abf3;
+	--primary-accent-bright-blue: #0040f4;
 	--primary-accent-dark-blue: #193497;
 	--primary-accent-grey: #8289a3;
-	--primary-accent-bright-blue: #0040f4;
 	
-	--primary-accent-light-blue: #00abf3;
 }
 
 /* =================== reset default styles =================== */

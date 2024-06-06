@@ -19,3 +19,4 @@ The following pages need to be implemented:
 - Contact - not started
 - Login - done; html and css validation - done (alls good)
 - Signup - done; html and css validation - done (alls good)
+- Calendar - in progress

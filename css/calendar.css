@@ -3,12 +3,7 @@
 /* =================== font styles =================== */
 
 /* =================== constants =================== */
-/* ---------- navigation ---------- */
-section.navigation .nav.mobile.container {
-	border-color: transparent;
-	padding-bottom: 0;
-	justify-content: flex-end;
-}
+
 
 /* ---------- calendar ---------- */
 section.calendar .calendar.container {
@@ -221,29 +216,40 @@ section.task .tasks.container>.task .trash.container button span {
 /* ---------- add task mobile menu ---------- */
 div.add-task.container {
 	position: fixed;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	padding: 5px;
-	background-color: var(--primary-accent-blue);
-}
-
-div.add-task nav#add-menu {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
+	bottom: 1rem;
+	right: 1rem;
+	border-radius: 50%;
 }
 
 div.add-task nav#add-menu button {
 	cursor: pointer;
+	border-radius: 50%;
+	width: 3rem;
+	height: 3rem;
+	border-color: var(--primary-accent-bright-blue);
 }
 
 div.add-task nav#add-menu button span {
 	font-weight: 700;
+	color: var(--primary-accent-bright-blue);
 }
 
 /* =================== media queries =================== */
+/* =================== MOBILE & TABLET =================== */
+@media only screen and (max-width: 64em) {
+
+	/* ---------- navigation ---------- */
+	section.navigation {
+		margin-bottom: 0.5rem;
+
+	}
+	section.navigation .nav.mobile.container {
+		border-color: transparent;
+		padding-bottom: 0;
+		justify-content: flex-end;
+	}
+}
+
 /* =================== TABLET =================== */
 @media only screen and (min-width: 40.063em) {
 
@@ -270,27 +276,13 @@ div.add-task nav#add-menu button span {
 
 	/* ---------- add task menu mobile ---------- */
 	div.add-task.container {
-		position: fixed;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		padding: 5px;
-		background-color: var(--primary-accent-blue);
-	}
-
-	div.add-task nav#add-menu {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: center;
+		bottom: 2rem;
+		right: 2rem;
 	}
 
 	div.add-task nav#add-menu button {
-		cursor: pointer;
-	}
-
-	div.add-task nav#add-menu button span {
-		font-size: 1.3em;
+		width: 4rem;
+		height: 4rem;
 	}
 }
 
@@ -308,19 +300,14 @@ div.add-task nav#add-menu button span {
 		margin-bottom: 1rem;
 	}
 
-
 	/* disables SimplyTasks logo on desktop */
 	section.navigation nav#desktop #logo-desktop {
 		pointer-events: none;
 	}
 
 	/* ---------- calendar ---------- */
-	section.calendar, section.task {
+	section.calendar,
+	section.task {
 		padding: 0 2rem;
-	}
-	
-	/* ---------- add task menu mobile ---------- */
-	div.add-task.container {
-		display: none;
 	}
 }

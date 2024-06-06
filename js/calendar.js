@@ -5,7 +5,7 @@ let year = today.getFullYear();
 let day = today.getDate();
 
 $(document).ready(function () {
-	/* =================== calendar =================== */
+	/* =================== CALENDAR METHODS =================== */
 	/* ---------- updating calendar month header ---------- */
 	const monthsList = [
 		"January",
@@ -161,8 +161,12 @@ $(document).ready(function () {
 		$("#fullDate").text(getFullDate(clickedDate.getDate(), month, year));
 
 		// get events from local storage and display them
-		let tasks = getEvents(year, month, $(this).text());
-		$(".tasks").html(tasks);
+		// else display "No tasks today!"
+		$(".tasks").html(
+			hasEvents(year, month, day)
+				? getEvents(year, month, $(this).text())
+				: `<p>No tasks today!</p>`
+		);
 	});
 
 	/* ---------- updating calendar previous and next buttons ---------- */
@@ -220,7 +224,7 @@ $(document).ready(function () {
 		);
 	});
 
-	/* =================== local host =================== */
+	/* =================== LOCAL STORAGE METHODS =================== */
 	// FIXME: fix localhost so that all events and dates are associated with PIN
 	/**
 	 *
@@ -362,7 +366,7 @@ $(document).ready(function () {
 		}
 	}
 
-	/* =================== task list =================== */
+	/* =================== TASK LIST METHODS =================== */
 	/* ---------- updating tasks header ---------- */
 	const dayOfWeek = [
 		"Sunday",
@@ -425,8 +429,7 @@ $(document).ready(function () {
 		// add the 'event' tag to the currently selected day
 		if ($(".day").hasClass("active")) {
 			$(".day.active").addClass("event");
-		}
-		else {
+		} else {
 			$(".day.today").addClass("event");
 		}
 
@@ -519,8 +522,7 @@ $(document).ready(function () {
 			// remove the event tag
 			if ($(".day").hasClass("active")) {
 				$(".day.active").removeClass("event");
-			}
-			else {
+			} else {
 				$(".day.today").removeClass("event");
 			}
 		}

@@ -1,0 +1,34 @@
+/* =================== base page styles =================== */
+
+/* =================== font styles =================== */
+
+/* =================== constants =================== */
+/* ---------- navigation ---------- */
+section.navigation .nav.mobile.container {
+	border-color: transparent;
+	padding-bottom: 0;
+	justify-content: flex-end;
+}
+
+/* ---------- account ---------- */
+section.account {
+	margin-top: 0;
+}
+
+section.account>.container {
+	margin-bottom: 1rem;
+}
+
+/* =================== media queries =================== */
+/* =================== TABLET =================== */
+@media only screen and (min-width: 40.063em) {
+
+	/* ---------- account ---------- */
+	#main-grid>section.account {
+		grid-column: span 6;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1rem;
+		padding: 0 2rem;
+	}
+}
