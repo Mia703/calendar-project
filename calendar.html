@@ -43,9 +43,6 @@
 						<li class="list-item mobile">
 							<a href="calendar.html">Calendar</a>
 						</li>
-						<li class="list-item mobile">
-							<a href="#">Help</a>
-						</li>
 						<li class="list-item">
 							<a href="account.html">Account</a>
 						</li>
@@ -60,9 +57,6 @@
 				<ul class="nav-list desktop">
 					<li class="list-item">
 						<a href="calendar.html" class="underline">Calendar</a>
-					</li>
-					<li class="list-item">
-						<a href="#">Help</a>
 					</li>
 					<li class="list-item desktop">
 						<a href="account.html">Account</a>
@@ -105,6 +99,12 @@
 				</div>
 			</div>
 			<!-- TODO: add go to month year form -->
+			<!-- <div class="go-to container">
+				<form action="" id="getDate">
+					<input type="date" name="goToDate" id="goToDate">
+					<button type="submit" id="getDateSubmitBtn" class="filled">Go</button>
+				</form>
+			</div> -->
 			<!-- TODO: add 'today' button -->
 		</section>
 		<section class="task">
@@ -117,13 +117,9 @@
 		</section>
 		<!-- floating add task button -->
 		<div class="add-task container">
-			<nav id="add-menu">
-				<button type="button" id="addTaskButton" class="outlined">
-					<span class="material-symbols-outlined">
-						add_task
-					</span>
-				</button>
-			</nav>
+			<button type="button" id="addTaskButton" class="outlined">
+				Add Task
+			</button>
 		</div>
 	</div>
 	<!-- new task form -->

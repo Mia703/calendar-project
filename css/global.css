@@ -12,7 +12,7 @@
 	--primary-accent-bright-blue: #0040f4;
 	--primary-accent-dark-blue: #193497;
 	--primary-accent-grey: #8289a3;
-	
+
 }
 
 /* =================== reset default styles =================== */
@@ -77,6 +77,7 @@ a.filled {
 	display: flex;
 	justify-content: center;
 	font-family: "Work Sans", sans-serif;
+	transition: all 200ms ease-in;
 }
 
 button.outlined,
@@ -92,6 +93,7 @@ a.outlined {
 	display: flex;
 	justify-content: center;
 	font-family: "Work Sans", sans-serif;
+	transition: all 200ms ease-in;
 }
 
 button.filled,
@@ -362,5 +364,10 @@ section.navigation .nav.mobile.container span {
 
 	section.navigation>nav#desktop .nav-list .list-item a:hover {
 		border-color: var(--primary-accent-dark-blue);
+	}
+
+	section.navigation>nav#desktop .links.container.desktop a:hover {
+		background-color: var(--primary-accent-bright-blue);
+		border-color: var(--primary-accent-bright-blue);
 	}
 }

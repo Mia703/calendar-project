@@ -4,14 +4,19 @@
 
 /* =================== constants =================== */
 
-
 /* ---------- calendar ---------- */
+section.calendar {
+	height: fit-content;
+	margin-bottom: 0;
+}
+
 section.calendar .calendar.container {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	width: 100%;
 	height: 100%;
+	padding-bottom: 1rem;
 }
 
 /* calendar header */
@@ -128,6 +133,23 @@ section.calendar .calendar.container .days>.active.event::after {
 	background-color: var(--primary-accent-white);
 }
 
+/* ---------- go-to container---------- */
+/* section.calendar .go-to.container form {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	
+}
+
+section.calendar .go-to.container> form input {
+	border: 2px solid var(--primary-accent-blue);
+	border-radius: 5px;
+	padding: 5px 10px;
+	font-size: 1em;
+	text-align: center;
+	width: 45%;
+} */
+
 /* ---------- tasks container---------- */
 section.task .task.header {
 	display: flex;
@@ -222,15 +244,18 @@ div.add-task.container {
 	border-radius: 50%;
 }
 
-div.add-task nav#add-menu button {
+div.add-task button {
 	cursor: pointer;
-	border-radius: 50%;
-	width: 3rem;
-	height: 3rem;
-	border-color: var(--primary-accent-bright-blue);
+	border-color: var(--primary-accent-light-blue);
 }
 
-div.add-task nav#add-menu button span {
+div.add-task button:hover {
+	background-color: var(--primary-accent-light-blue);
+	color: var(--primary-accent-white);
+	transition: background-color 200ms ease-in;
+}
+
+div.add-task button span {
 	font-weight: 700;
 	color: var(--primary-accent-bright-blue);
 }
