@@ -1,0 +1,16 @@
+Assignment Notes
+
+When completed your assignment must be 5 to 6 pages and contain the following content:
+- Your website must have a homepage, (done)
+- Your website must have a contact page, (done)
+- Your website must have  other web pages that are necessary to fulfil the minimum page count
+	- About.html
+	- Login.html
+	- Signup.html
+	- Calendar.html
+	- Account.html
+- Your website must have a uniform theme (done)
+- Your website must have a logo that appears on all pages (done)
+- Your website must have at least one page that contains detailed information about the site  (?)
+
+All pages have been checked by W3C HTML and CSS validator

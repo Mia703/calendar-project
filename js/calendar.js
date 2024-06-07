@@ -9,8 +9,8 @@ const current_user = localStorage.getItem("simplyTasks");
 
 $(document).ready(function () {
 	/* =================== OTHER METHODS =================== */
-	/* ---------- start tooltip on desktop ---------- */
-	// if the window is the size of a desktop or larger
+	/* ---------- show tooltip only on desktop ---------- */
+	// if the window is the size of a desktop or larger (64.063em * 16 = 1025.008px)
 	// start the tooltip
 	if ($(window).width() >= 1025.008) {
 		$(document).tooltip();

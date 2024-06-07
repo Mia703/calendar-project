@@ -8,15 +8,6 @@ This site is meant to target a broad audience, encompassing a variety of individ
 
 _Note: This project was created for the express purpose to serve as the final project the course ICT 4505: Web Design and Management's for the Spring of 2024._
 
-## Notes
+# License
 
-The following pages need to be implemented:
-
-- Homepage - done; html and css validation - done (alls good)
-- Product
-- About - done; html and css validation - done (alls good)
-- Career
-- Contact - not started
-- Login - done; html and css validation - done (alls good)
-- Signup - done; html and css validation - done (alls good)
-- Calendar - in progress
+ SimplyTasks © 2024 by Amya Moore is licensed under CC BY-SA 4.0.
