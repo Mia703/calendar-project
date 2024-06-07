@@ -71,7 +71,7 @@
 			<div class="calendar container">
 				<div class="container header">
 					<!-- previous button -->
-					<button class="left prev filled" type="button">
+					<button class="left prev filled" type="button" title="Go to the previous month">
 						<span class="material-symbols-outlined">
 							arrow_back_ios
 						</span>
@@ -79,7 +79,7 @@
 					<!-- current month and year -->
 					<div id="currMonth" class="date"></div>
 					<!-- next button -->
-					<button class="right next filled" type="button">
+					<button class="right next filled" type="button" title="Go to the next month">
 						<span class="material-symbols-outlined">
 							arrow_forward_ios
 						</span>
@@ -98,14 +98,15 @@
 					</div>
 				</div>
 			</div>
-			<!-- TODO: add go to month year form -->
-			<!-- <div class="go-to container">
+			<div class="go container">
+				<!-- go to specific date -->
 				<form action="" id="getDate">
 					<input type="date" name="goToDate" id="goToDate">
-					<button type="submit" id="getDateSubmitBtn" class="filled">Go</button>
+					<button type="submit" id="getDateSubmitBtn" class="filled" title="Go to a specific day">Go</button>
 				</form>
-			</div> -->
-			<!-- TODO: add 'today' button -->
+				<!-- go to today's date -->
+				<button type="button" id="todayButton" class="filled" title="Go to today">Today</button>
+			</div>
 		</section>
 		<section class="task">
 			<div class="task header">
@@ -117,7 +118,7 @@
 		</section>
 		<!-- floating add task button -->
 		<div class="add-task container">
-			<button type="button" id="addTaskButton" class="outlined">
+			<button type="button" id="addTaskButton" class="outlined" title="Create a new task">
 				Add Task
 			</button>
 		</div>
@@ -154,6 +155,10 @@
 			<button type="submit">Add Task</button>
 		</form>
 	</div>
+	<!-- help dialog -->
+	 <div id="dialog-help-message" title="How to use SimplyTasks">
+
+	 </div>
 	<script src="js/global.js"></script>
 	<script src="js/calendar.js"></script>
 </body>

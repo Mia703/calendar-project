@@ -3,11 +3,22 @@
 /* =================== font styles =================== */
 
 /* =================== constants =================== */
+/* ---------- navigation ---------- */
+section.navigation {
+	margin-top: 0;
+	margin-bottom: 0.5rem;
+}
+
+section.navigation .nav.mobile.container {
+	border-color: transparent;
+	padding-bottom: 0;
+	justify-content: flex-end;
+}
 
 /* ---------- calendar ---------- */
 section.calendar {
 	height: fit-content;
-	margin-bottom: 0;
+	margin-bottom: 1rem;
 }
 
 section.calendar .calendar.container {
@@ -133,22 +144,38 @@ section.calendar .calendar.container .days>.active.event::after {
 	background-color: var(--primary-accent-white);
 }
 
-/* ---------- go-to container---------- */
-/* section.calendar .go-to.container form {
+/* ---------- go container---------- */
+.go.container {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	
+	align-items: center;
 }
 
-section.calendar .go-to.container> form input {
+/* get specific date form */
+.go.container form {
+	display: flex;
+	flex-direction: row;
+}
+
+.go.container form input {
 	border: 2px solid var(--primary-accent-blue);
 	border-radius: 5px;
 	padding: 5px 10px;
 	font-size: 1em;
 	text-align: center;
-	width: 45%;
-} */
+	min-width: 7rem;
+	margin-right: 0.5rem;
+}
+
+.go.container button {
+	cursor: pointer;
+}
+
+.go.container button:hover {
+	background-color: var(--primary-accent-bright-blue);
+	border-color: var(--primary-accent-bright-blue);
+}
 
 /* ---------- tasks container---------- */
 section.task .task.header {
@@ -261,18 +288,13 @@ div.add-task button span {
 }
 
 /* =================== media queries =================== */
-/* =================== MOBILE & TABLET =================== */
+/* =================== ONLY TABLET =================== */
 @media only screen and (max-width: 64em) {
 
 	/* ---------- navigation ---------- */
 	section.navigation {
+		margin-top: 1rem;
 		margin-bottom: 0.5rem;
-
-	}
-	section.navigation .nav.mobile.container {
-		border-color: transparent;
-		padding-bottom: 0;
-		justify-content: flex-end;
 	}
 }
 
@@ -298,6 +320,11 @@ div.add-task button span {
 	section.task .tasks.container>.task .content.container,
 	section.task .tasks.container>.task .trash.container {
 		font-size: 1em;
+	}
+
+	/* ---------- go container ---------- */
+	.go.container form input {
+		min-width: 15rem;
 	}
 
 	/* ---------- add task menu mobile ---------- */

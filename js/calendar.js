@@ -8,6 +8,25 @@ let day = today.getDate();
 const current_user = localStorage.getItem("simplyTasks");
 
 $(document).ready(function () {
+	/* =================== OTHER METHODS =================== */
+	/* ---------- start tooltip on desktop ---------- */
+	// if the window is the size of a desktop or larger
+	// start the tooltip
+	if ($(window).width() >= 1025.008) {
+		$(document).tooltip();
+	}
+
+	$(window).resize(function () {
+		// remove any existing tooltips
+		if ($(document).tooltip("instance")) {
+			$(document).tooltip("destroy");
+		}
+		// re-add tooltip
+		if ($(window).width() >= 1025.008) {
+			$(document).tooltip();
+		}
+	});
+
 	/* =================== CALENDAR METHODS =================== */
 	/* ---------- updating calendar month header ---------- */
 	const monthsList = [
@@ -173,12 +192,14 @@ $(document).ready(function () {
 	});
 
 	/* ---------- updating calendar previous and next buttons ---------- */
-
-	let monthIndex = month; // get the current month
-	let yearIndex = year; // get the current year
+	let monthIndex = month; // get the current month (global)
+	let yearIndex = year; // get the current year (global)
 
 	// on click of the previous button
 	$("button.left.prev").on("click", function () {
+		monthIndex = month;
+		yearIndex = year;
+
 		monthIndex -= 1; // move the index
 
 		// if the index is less than 0
@@ -191,12 +212,14 @@ $(document).ready(function () {
 		monthIndex = monthIndex; // save the new index
 
 		// update month and year (global)
-		// month = monthIndex;
-		// year = yearIndex;
+		month = monthIndex;
+		year = yearIndex;
+
+		// console.log("moving prev:" + monthIndex + "/" + yearIndex);
 
 		// update the month header
 		$("#currMonth").text(getCurrentMonth(monthIndex, yearIndex));
-		// update the calendar
+		// update the calendar (currentContent (global))
 		$(".container.days").html(
 			currentContent + getCalendar(monthIndex, yearIndex)
 		);
@@ -204,6 +227,9 @@ $(document).ready(function () {
 
 	// on click of the next button
 	$("button.right.next").on("click", function () {
+		monthIndex = month;
+		yearIndex = year;
+
 		monthIndex += 1; // move the index
 
 		// if the index equals 12
@@ -216,8 +242,10 @@ $(document).ready(function () {
 		monthIndex = monthIndex; // save the new index
 
 		// update month and year (global)
-		// month = monthIndex;
-		// year = yearIndex;
+		month = monthIndex;
+		year = yearIndex;
+
+		// console.log('moving next:' + monthIndex + "/" + yearIndex);
 
 		// update the month header
 		$("#currMonth").text(getCurrentMonth(monthIndex, yearIndex));
@@ -227,7 +255,106 @@ $(document).ready(function () {
 		);
 	});
 
-	/* =================== TASK LIST METHODS =================== */
+	/* ---------- go specific date ---------- */
+	$("#getDate").on("submit", function (e) {
+		e.preventDefault(); // prevent the default form submission
+
+		/* ---------- get selected date ---------- */
+		let selected_date = new Date($("#goToDate").val());
+		// console.log(selected_date);
+
+		let selected_day = selected_date.getDate() + 1;
+		let selected_month = selected_date.getMonth();
+		let selected_year = selected_date.getFullYear();
+
+		/* ---------- update global month and year ---------- */
+		month = selected_month;
+		year = selected_year;
+		// console.log("go to: " + month + "/" + year);
+
+		/* ---------- update month header and calendar ---------- */
+		// update month header
+		$("#currMonth").text(getCurrentMonth(selected_month, selected_year));
+		// update the calendar
+		$(".container.days").html(
+			currentContent + getCalendar(selected_month, selected_year)
+		);
+
+		/* ---------- update tasks header and list ---------- */
+		// update the tasks header
+		$("#dayOfWeek").text(getDayOfWeek(selected_day));
+		$("#fullDate").text(
+			getFullDate(selected_day, selected_month, selected_year)
+		);
+
+		// update tasks list
+		// get events from local storage and display them
+		// else display "No tasks today!"
+		$(".tasks").html(
+			hasEvents(selected_year, selected_month, selected_day)
+				? getEvents(selected_year, selected_month, selected_day)
+				: `<p>No tasks today!</p>`
+		);
+
+		/* ---------- remove "active" tag from previous ---------- */
+		// remove the "active" tag from the previously selected date
+		$(".day.active").removeClass("active");
+
+		/* ---------- add "active" tag to selected ---------- */
+		// add "active" tag to selected date
+		// finds all elements with the selected number
+		$(`.day:not(.prev-day, .next-day):contains(${selected_day})`)
+			// filters out that selection to return only the specified day
+			.filter(function () {
+				return $(this).text().trim() === `${selected_day}`;
+			})
+			// adds the "active" class name
+			.addClass("active");
+	});
+
+	/* ---------- today button ---------- */
+	$("#todayButton").on("click", function () {
+		/* ---------- get today's date ---------- */
+		let today = new Date();
+		let today_month = today.getMonth();
+		let today_year = today.getFullYear();
+		let today_day = today.getDate();
+
+		/* ---------- update global month and year ---------- */
+		month = today_month;
+		year = today_year;
+		day = today_day;
+
+		/* ---------- update month header and calendar ---------- */
+		// update the month header
+		$("#currMonth").text(getCurrentMonth(month, year));
+		// update the calendar
+		$(".container.days").html(currentContent + getCalendar(month, year));
+
+		/* ---------- update tasks header and list ---------- */
+		// update  tasks header
+		$("#dayOfWeek").text(getDayOfWeek(day));
+		$("#fullDate").text(getFullDate(day, month, year));
+
+		// update tasks list
+		// get events from local storage and display them
+		// else display "No tasks today!"
+		$(".tasks").html(
+			hasEvents(year, month, day)
+				? getEvents(year, month, day)
+				: `<p>No tasks today!</p>`
+		);
+
+		/* ---------- remove "active" tag from previous ---------- */
+		// remove the "active" tag from the previously selected date
+		$(".day.active").removeClass("active");
+
+		/* ---------- add "active" tag to selected ---------- */
+		// add the "active" tag to today's date
+		$(".day.today").addClass("active");
+	});
+
+	/* =================== TASKS & TASK LIST METHODS =================== */
 	/* ---------- updating tasks header ---------- */
 	const dayOfWeek = [
 		"Sunday",
