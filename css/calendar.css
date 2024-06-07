@@ -195,6 +195,7 @@ section.task .tasks.container>.task .trash.container button {
 	width: 100%;
 	border: none;
 	color: var(--primary-accent-white);
+	cursor: pointer;
 }
 
 section.task .tasks.container>.task.yellow .trash.container button {

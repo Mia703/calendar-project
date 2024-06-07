@@ -6,13 +6,26 @@ $(document).ready(function () {
 		// console.log(pin);
 
 		if (pin.length == 4) {
-			localStorage.setItem("simplyTasks", pin); // save the pin to local storage
+			localStorage.setItem(pin, "empty"); // save the pin to local storage
 			$(this)[0].reset(); // clear the form
-			// $("#pin").attr("placeholder", "Pin has been saved");
-			setTimeout(() => {
-				// console.log("waiting");
-			}, 5000); // wait 5 seconds
-			window.location.href = "login.html";
+			
+			// success dialog appears, redirects to login page after closing
+			$("#dialog-confirm-set-pin").dialog({
+				resizable: false,
+				height: "auto",
+				width: 400,
+				modal: true,
+				buttons: {
+					"Close": function () {
+						$(this).dialog("close");
+							setTimeout(() => {
+								// console.log("waiting");
+							}, 5000); // wait 5 seconds
+							window.location.href = "login.html";
+					},
+				},
+			});
+
 		} else {
 			$(this)[0].reset(); // clear the form
 			$("#pin").attr("placeholder", "Pin is not 4 digits");

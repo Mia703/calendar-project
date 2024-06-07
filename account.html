@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +10,8 @@
 	<!-- google icons -->
 	<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 	<!-- jquery cdn -->
-	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-		crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.7.1.js"
+		integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 	<!-- jquery ui cdn -->
 	<script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"
 		integrity="sha256-J8ay84czFazJ9wcTuSDLpPmwpMXOm573OUtZHPQqpEU=" crossorigin="anonymous"></script>
@@ -18,6 +19,7 @@
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
 	<title>SimplyTasks</title>
 </head>
+
 <body>
 	<div id="main-grid">
 		<section class="navigation">
@@ -57,13 +59,13 @@
 				<a href="#" id="logo-desktop" class="logo">SimplyTasks</a>
 				<ul class="nav-list desktop">
 					<li class="list-item">
-						<a href="calendar.html" class="underline">Calendar</a>
+						<a href="calendar.html">Calendar</a>
 					</li>
 					<li class="list-item">
 						<a href="#">Help</a>
 					</li>
 					<li class="list-item desktop">
-						<a href="#">Change Pin</a>
+						<a href="account.html" class="underline">Account</a>
 					</li>
 				</ul>
 				<div class="links container desktop">
@@ -75,23 +77,63 @@
 			<div class="change-pin container">
 				<h1>Change your Pin</h1>
 				<p>Enter a new pin below to change your login.</p>
-				<form action="" id="changeLocalStorage">
-					<input type="text" name="changePin" id="changePin" placeholder="Enter your new pin" maxlength="4" required>
+				<form id="changeLocalStorage">
+					<input type="text" name="currPin" id="currPin" placeholder="Enter your current pin" maxlength="4" required>
+					<input type="text" name="changePin" id="changePin" placeholder="Enter your new pin" maxlength="4"
+						required>
 					<button type="submit" class="filled" id="changePinSubmitButton">Change Pin</button>
 				</form>
 			</div>
+			<!-- change pin error dialog -->
+			<div id="dialog-error-change-pin" style="display: none;" title="Pin Changed">
+				<p>Sorry, you cannot use the same pin as your current one. Please enter a new pin.</p>
+			</div>
+			<!-- change pin success dialog -->
+			<div id="dialog-confirm-change-pin" style="display: none;" title="Pin Changed">
+				<p>Your pin has been successfully changed!</p>
+			</div>
+			<!-- change pin length error dialog -->
+			<div id="dialog-error-pin-length" style="display: none;" title="Pin Changed">
+				<p>Sorry, your pin is not four (4) digits. Please enter a new pin.</p>
+			</div>
+			<!-- change pin current pin error dialog -->
+			<div id="dialog-error-current-pin" style="display: none;" title="Pin Changed">
+				<p>This is not your current pin. Please try again.</p>
+			</div>
+
 			<div class="delete-tasks container">
-				<h1>Delete <span class="highlight">All</span> tasks?</h1>
-				<form action="" id="deleteAllTasks">
-					<p>
-						By clicking the button below, all tasks in your calendar will be removed.
-						This is an irreversible action that cannot be undone. To proceed, click the button below.
-					</p>
+				<h1>Delete?</h1>
+				<form id="deleteAllTasks">
 					<button type="submit" class="outlined">Delete ALL Tasks</button>
 				</form>
+				<form id="deleteAccount">
+					<button type="submit" class="outlined">Delete Account</button>
+				</form>
+			</div>
+			<!-- delete all tasks confirmation form -->
+			<div id="dialog-confirm-delete-tasks" style="display: none;" title="Delete All Tasks">
+				<p>
+					By clicking the button below, all tasks in your calendar will be removed.
+					This is an irreversible action that CANNOT be undone. To proceed, enter your pin and click the button below.
+				</p>
+				<input type="text" name="delAllTasksPin" id="delAllTasksPin" placeholder="Enter your pin" maxlength="4" required>
+			</div>
+			<!-- delete account confirmation dialog -->
+			<div id="dialog-confirm-delete-account" style="display: none;" title="Delete Account">
+				<p>
+					By clicking the button below, your account will be deleted. All account information and tasks in
+					your calendar will be removed.
+					This is an irreversible action that CANNOT be undone. To proceed, enter your pin and click the button below.
+					<br />
+					<br />
+					Upon deletion you will be routed to the login page.
+				</p>
+				<input type="text" name="delAccountPin" id="delAccountPin" placeholder="Enter your pin" maxlength="4" required>
 			</div>
 		</section>
 	</div>
 	<script src="js/global.js"></script>
+	<script src="js/account.js"></script>
 </body>
+
 </html>

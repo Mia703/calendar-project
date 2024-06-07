@@ -4,6 +4,9 @@ let month = today.getMonth();
 let year = today.getFullYear();
 let day = today.getDate();
 
+// get the current user's pin
+const current_user = localStorage.getItem("simplyTasks");
+
 $(document).ready(function () {
 	/* =================== CALENDAR METHODS =================== */
 	/* ---------- updating calendar month header ---------- */
@@ -163,7 +166,7 @@ $(document).ready(function () {
 		// get events from local storage and display them
 		// else display "No tasks today!"
 		$(".tasks").html(
-			hasEvents(year, month, day)
+			hasEvents(year, month, $(this).text())
 				? getEvents(year, month, $(this).text())
 				: `<p>No tasks today!</p>`
 		);
@@ -224,148 +227,6 @@ $(document).ready(function () {
 		);
 	});
 
-	/* =================== LOCAL STORAGE METHODS =================== */
-	// FIXME: fix localhost so that all events and dates are associated with PIN
-	/**
-	 *
-	 * @param {string} year
-	 * @param {string} month
-	 * @param {string} day
-	 * @param {string} title
-	 * @param {string} description
-	 * @param {string} startTime
-	 * @param {string} endTime
-	 * @param {string} priority
-	 *
-	 * saves task to localhost
-	 */
-	function saveEvent(
-		year,
-		month,
-		day,
-		title,
-		description,
-		startTime,
-		endTime,
-		priority
-	) {
-		let date = {
-			year: Number(year),
-			month: Number(month),
-			day: Number(day),
-		};
-
-		let event = {
-			title: title,
-			desc: description,
-			start: startTime,
-			end: endTime,
-			priority: priority,
-		};
-
-		// if the date is not already saved in localhost, save it
-		if (localStorage.getItem(JSON.stringify(date)) == null) {
-			let eventsList = []; // create an empty eventsList array
-			eventsList.push(event); // add the event to the array
-
-			// save to local storage (key = date and value = eventsList)
-			localStorage.setItem(JSON.stringify(date), JSON.stringify(eventsList));
-		}
-		// else, get the saved date and add new event
-		else {
-			// get the date's eventsList
-			let eventsList = JSON.parse(localStorage.getItem(JSON.stringify(date)));
-
-			// add the new event
-			eventsList.push(event);
-
-			// resave to local storage
-			localStorage.setItem(JSON.stringify(date), JSON.stringify(eventsList));
-		}
-	}
-
-	/**
-	 *
-	 * @param {string} year
-	 * @param {string} month
-	 * @param {string} day
-	 * @returns list of tasks for specific day
-	 */
-	function getEvents(year, month, day) {
-		let date = {
-			year: Number(year),
-			month: Number(month),
-			day: Number(day),
-		};
-
-		if (localStorage.getItem(JSON.stringify(date)) != null) {
-			// get the date's eventsList
-			let eventsList = JSON.parse(localStorage.getItem(JSON.stringify(date)));
-			// return the events as string
-			let eventsString = "";
-			for (let i = 0; i < eventsList.length; i++) {
-				eventsString += createTask(
-					eventsList[i].title,
-					eventsList[i].desc,
-					eventsList[i].start,
-					eventsList[i].end,
-					eventsList[i].priority
-				);
-			}
-			return eventsString;
-		} else {
-			return "";
-		}
-	}
-
-	/**
-	 *
-	 * @param {string} year
-	 * @param {string} month
-	 * @param {string} day
-	 * @returns returns true if specific day has events
-	 */
-	function hasEvents(year, month, day) {
-		if (getEvents(year, month, day) != "") {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	/**
-	 *
-	 * @param {object} date
-	 * @param {object} event
-	 * @returns removes task from local storage, returns 0 if all tasks are gone, else 1
-	 */
-	function removeEvent(date, event) {
-		// if the 'date' has events
-		if (localStorage.getItem(JSON.stringify(date)) != null) {
-			// get the date's eventsList
-			let eventsList = JSON.parse(localStorage.getItem(JSON.stringify(date)));
-
-			if (eventsList.length == 1) {
-				localStorage.removeItem(JSON.stringify(date));
-				return 0;
-			} else {
-				// iterate through the events list and find the specified event
-				for (let i = 0; i < eventsList.length; i++) {
-					// if the event is in the events list (= the first event that matches)
-					if (JSON.stringify(event) == JSON.stringify(eventsList[i])) {
-						// remove the event from the array
-						eventsList.splice(i, 1);
-						break; // exit the loop
-					}
-				}
-
-				// update local storage
-				localStorage.setItem(JSON.stringify(date), JSON.stringify(eventsList));
-				return 1;
-			}
-		}
-	}
-
 	/* =================== TASK LIST METHODS =================== */
 	/* ---------- updating tasks header ---------- */
 	const dayOfWeek = [
@@ -387,6 +248,8 @@ $(document).ready(function () {
 		return dayOfWeek[index];
 	}
 
+	$("#dayOfWeek").text(getDayOfWeek(today.getDay()));
+
 	/**
 	 *
 	 * @param {number} day the selected day
@@ -398,7 +261,6 @@ $(document).ready(function () {
 		return monthsList[month] + " " + day + ", " + year;
 	}
 
-	$("#dayOfWeek").text(getDayOfWeek(today.getDay()));
 	$("#fullDate").text(getFullDate(today.getDate(), month, year));
 
 	/* ---------- default tasks container display ---------- */
@@ -413,11 +275,15 @@ $(document).ready(function () {
 	// on click of add task button, display new task dialog form
 	$("#addTaskButton").on("click", function () {
 		$("#newTaskForm").trigger("reset"); // reset the form values (just in case there's still values there)
-		$("#newTaskDialog").dialog(); // open the form
+		$("#newTaskDialog").dialog({
+			height: "auto",
+			width: 400,
+			modal: true,
+		}); // open the form
 	});
 
-	$("#newTaskForm").on("submit", function (event) {
-		event.preventDefault(); // prevent the default submission
+	$("#newTaskForm").on("submit", function (e) {
+		e.preventDefault(); // prevent the default submission
 
 		// get form inputs
 		let title = $("input#title").val();
@@ -433,7 +299,7 @@ $(document).ready(function () {
 			$(".day.today").addClass("event");
 		}
 
-		// create the task and add to task list container
+		// create the task and add to tasks container
 		const currentTasks = $(".tasks").html(); // what's currently in the task list
 
 		// if "No tasks today!" is present, remove upon creation of first task
@@ -450,7 +316,7 @@ $(document).ready(function () {
 			);
 		}
 
-		// save task to localhost
+		// save the task to localhost
 		let day = $(".day.active").text()
 			? $(".day.active").text()
 			: $(".day.today").text();
@@ -473,7 +339,7 @@ $(document).ready(function () {
 	/* ---------- removing a task ---------- */
 	// on click of task trash button, remove task
 	$(document).on("click", "button.trash", function () {
-		// create a date object
+		// create the date object
 		let date = {
 			year: Number(year),
 			month: Number(month),
@@ -483,6 +349,8 @@ $(document).ready(function () {
 					: $(".day.today").text()
 			),
 		};
+
+		// console.log(date);
 
 		// split the string "9:00 AM - 12:00 PM"
 		// into "9:00 AM" and "12:00 PM"
@@ -511,14 +379,14 @@ $(document).ready(function () {
 			priority: priority,
 		};
 
-		// console.log(date);
 		// console.log(event);
-		console.log($(this).closest(".task"));
 
 		// remove the task from local storage
-		let index = removeEvent(date, event);
-		console.log(index);
-		if (index == 0) {
+		let confirmation = removeEvent(date, event);
+
+		// if there are no more events for the specified day
+		// remove the 'event' tag
+		if (confirmation == 0) {
 			// remove the event tag
 			if ($(".day").hasClass("active")) {
 				$(".day.active").removeClass("event");
@@ -526,7 +394,9 @@ $(document).ready(function () {
 				$(".day.today").removeClass("event");
 			}
 		}
-		$(this).closest(".task").remove(); // remove the task from tasks list view
+
+		// remove the task from tasks list view
+		$(this).closest(".task").remove();
 	});
 
 	/**
@@ -622,5 +492,230 @@ $(document).ready(function () {
 		} else {
 			return "red";
 		}
+	}
+
+	/* =================== LOCAL STORAGE METHODS =================== */
+	/**
+	 *
+	 * @param {string} year
+	 * @param {string} month
+	 * @param {string} day
+	 * @param {string} title
+	 * @param {string} description
+	 * @param {string} startTime
+	 * @param {string} endTime
+	 * @param {string} priority
+	 *
+	 * saves task to localhost
+	 */
+	function saveEvent(
+		year,
+		month,
+		day,
+		title,
+		description,
+		startTime,
+		endTime,
+		priority
+	) {
+		// create a date object
+		let date = {
+			year: Number(year),
+			month: Number(month),
+			day: Number(day),
+		};
+
+		// create the event object
+		let event = {
+			title: title,
+			desc: description,
+			start: startTime,
+			end: endTime,
+			priority: priority,
+		};
+
+		// console.log(current_user); // global
+		// console.log(date);
+		// console.log(event);
+
+		// if the date is not already saved in local storage, save it
+		if (localStorage.getItem(current_user) == "empty") {
+			// create the eventsList object
+			let eventsList = {};
+
+			// turn the date into a string
+			let date_string = JSON.stringify(date);
+
+			// save the event
+			eventsList[date_string] = [event];
+
+			// save to local storage
+			localStorage.setItem(current_user, JSON.stringify(eventsList));
+		}
+		// else, get the saved data and update it
+		else {
+			// get the users's eventsList
+			let eventsList = JSON.parse(localStorage.getItem(current_user));
+			// console.log(eventsList);
+
+			// turn the date into a string
+			let date_string = JSON.stringify(date);
+
+			// if the selected date is already saved
+			if (eventsList[date_string]) {
+				// add the new event to the array
+				eventsList[date_string].push(event);
+
+				// save to local storage
+				localStorage.setItem(current_user, JSON.stringify(eventsList));
+			}
+			// else the date is not saved
+			else {
+				// add the event to a new section of the array
+				eventsList[date_string] = [event];
+
+				// save to local storage
+				localStorage.setItem(current_user, JSON.stringify(eventsList));
+			}
+		}
+	}
+
+	/**
+	 *
+	 * @param {string} year
+	 * @param {string} month
+	 * @param {string} day
+	 * @returns list of tasks for specific day
+	 */
+	function getEvents(year, month, day) {
+		// create a date object
+		let date = {
+			year: Number(year),
+			month: Number(month),
+			day: Number(day),
+		};
+
+		// convert the date ito a string
+		let date_string = JSON.stringify(date);
+
+		// get the user's events list
+		let eventsList = JSON.parse(localStorage.getItem(current_user));
+
+		// if there are events at the specified date
+		if (eventsList[date_string]) {
+			// return the events string
+			let events_string = "";
+
+			for (let i = 0; i < eventsList[date_string].length; i++) {
+				events_string += createTask(
+					eventsList[date_string][i].title,
+					eventsList[date_string][i].desc,
+					eventsList[date_string][i].start,
+					eventsList[date_string][i].end,
+					eventsList[date_string][i].priority
+				);
+			}
+
+			return events_string;
+		}
+		// else, there are no events at the specified date
+		else {
+			return "";
+		}
+	}
+
+	/**
+	 *
+	 * @param {string} year
+	 * @param {string} month
+	 * @param {string} day
+	 * @returns returns true if specific day has events
+	 */
+	function hasEvents(year, month, day) {
+		// if the current user's eventsList is empty
+		if (localStorage.getItem(current_user) == "empty") {
+			return false;
+		}
+		// else, the current user has events somewhere in the calendar
+		else {
+			// if the selected date has events, return true
+			if (getEvents(year, month, day) != "") {
+				return true;
+			}
+			return false;
+		}
+	}
+
+	/**
+	 *
+	 * @param {object} date
+	 * @param {object} event
+	 * @returns removes task from local storage, returns 0 if all tasks are gone, else 1
+	 */
+	function removeEvent(date, event) {
+		// if the customer has events somewhere
+		if (localStorage.getItem(current_user) != "empty") {
+			// convert the date to string
+			let date_string = JSON.stringify(date);
+
+			// get the current user's events list
+			let eventsList = JSON.parse(localStorage.getItem(current_user));
+
+			// if the selected day only has one event
+			if (eventsList[date_string].length == 1) {
+				// remove the specified date property
+				delete eventsList[date_string];
+
+				// update local storage
+				localStorage.setItem(current_user, JSON.stringify(eventsList));
+
+				// if the user's events list object is now empty
+				// replace with "empty"
+				if (isEventsListEmpty()) {
+					localStorage.setItem(current_user, "empty");
+				}
+
+				return 0;
+			}
+			// else, the selected day has more than one event
+			else {
+				// iterate over the events list to find the specified event
+				// iterates using the Arrays.forEach() method
+				eventsList[date_string].forEach(updateArray);
+
+				// removes the event at the specified index.
+				function updateArray(item, index) {
+					if (JSON.stringify(event) == JSON.stringify(item)) {
+						console.log(index);
+						eventsList[date_string].splice(index, 1); // remove the event from the array
+						return; // exit the loop
+					}
+				}
+
+				// update local storage
+				localStorage.setItem(current_user, JSON.stringify(eventsList));
+
+				// if the user's events list object is now empty
+				// replace with "empty"
+				if (isEventsListEmpty()) {
+					localStorage.setItem(current_user, "empty");
+				}
+
+				return 1;
+			}
+		}
+	}
+
+	/**
+	 *
+	 * @returns checks if the user's eventsList is completely empty, returns true if empty
+	 */
+	function isEventsListEmpty() {
+		if (
+			Object.keys(JSON.parse(localStorage.getItem(current_user))).length == 0
+		) {
+			return true;
+		}
+		return false;
 	}
 });

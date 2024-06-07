@@ -8,7 +8,18 @@ h1 {
 }
 
 /* =================== constants =================== */
+/* ---------- dialog form styles ---------- */
+.ui-widget {
+	font-family: "Work Sans", sans-serif;
+}
 
+.ui-widget-content input {
+	padding: 0.2rem;
+	font-size: 1em;
+	width: 100%;
+}
+
+/* ---------- pin ---------- */
 section.pin>.container {
 	background-color: white;
 	padding: 1rem;

@@ -1,24 +1,10 @@
 /* =================== imported fonts =================== */
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
-/* ---------- sub-header ---------- */
-
-/* =================== global variables =================== */
-
-
-
 /* =================== form styles =================== */
-#newTaskDialog {
-	display: none;
-}
 
 .ui-widget {
 	font-family: "Work Sans", sans-serif;
-	position: absolute;
-	height: auto;
-	width: 400px;
-	top: 350.6px;
-	left: 255px;
 }
 
 .ui-widget-content form>div {
@@ -79,4 +65,5 @@
 	color: var(--primary-accent-white);
 	border: none;
 	cursor: pointer;
+	border-radius: 5px;
 }
