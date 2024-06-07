@@ -45,7 +45,7 @@ section.call-out>.container {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 50%;
-	border-radius: 5px;
+	border-radius: 10px;
 	overflow: hidden;
 }
 
