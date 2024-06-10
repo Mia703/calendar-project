@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-FV6JR9MP03"></script>
@@ -15,21 +14,19 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/global.css">
-	<link rel="stylesheet" href="css/about.css">
 	<link rel="stylesheet" href="css/homepage.css">
 	<!-- google icons -->
 	<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 	<!-- jquery cdn -->
-	<script src="https://code.jquery.com/jquery-3.7.1.js"
-		integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+		crossorigin="anonymous"></script>
 	<!-- jquery ui cdn -->
 	<script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"
 		integrity="sha256-J8ay84czFazJ9wcTuSDLpPmwpMXOm573OUtZHPQqpEU=" crossorigin="anonymous"></script>
 	<!-- jquery ui default styling -->
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
-	<title>SimplyTasks | About</title>
+	<title>SimplyTasks | Product</title>
 </head>
-
 <body>
 	<div id="main-grid">
 		<section class="navigation">
@@ -87,10 +84,10 @@
 						<a href="index.html">Home</a>
 					</li>
 					<li class="list-item desktop">
-						<a href="about.html" class="underline">About</a>
+						<a href="about.html">About</a>
 					</li>
 					<li class="list-item desktop">
-						<a href="product.html">Product</a>
+						<a href="product.html" class="underline">Product</a>
 					</li>
 					<li class="list-item desktop">
 						<a href="contact.html">Contact</a>
@@ -103,46 +100,50 @@
 			</nav>
 		</section>
 		<section class="about">
-			<div class="header container">
-				<div class="content container">
-					<h1 class="title">About Us</h1>
+			<div class="content container">
+				<h1>Manage your Tasks with ease</h1>
+				<p>
+					Stay organised with SimplyTasks!
+				</p>
+				<div class="container">
+					<a href="about.html" class="learn-more outlined"> Learn More</a>
+					<a href="signup.html" class="signup filled">
+						Signup
+						<span class="material-symbols-outlined">
+							arrow_forward_ios
+						</span>
+					</a>
+				</div>
+			</div>
+			<div id="accordion" class="features container">
+				<h2>Easy to Use</h2>
+				<div class="feature container">
+					<p>A simple user-friendly interface that allows you to easily signup and start organising your life!</p>
+				</div>
+				<h2>Secure PIN login for enhanced privacy</h2>
+				<div class="feature container">
 					<p>
-						At SimplyTasks, we believe in the power of simplicity and efficiency to help you stay organised and
-						productive. Founded by small team of students at the University of Denver in 2024, SimplyTasks began as
-						a small class project. <br /> <br />
-						Recognising the need for a straightforward yet powerful too to manage our hectic schedules, we set out to
-						develop a solution that combines the functionality of a calendar with the convenience of
-						a to-do list in one intuitive platform.
+						The only person who should see your tasks is you. 
+						Your personal information with a secure PIN login so only you can access your account.
 					</p>
 				</div>
-				<div class="image container">
-					<img src="assets/jason-goodman-Oalh2MojUuk-unsplash.jpg" alt="Woman placing sticky notes on wall">
+				<h2>Stay organised</h2>
+				<div class="feature container">
+					<p>Efficiently manage your tasks with our simple all-in-one task-management system.</p>
 				</div>
 			</div>
-			<div class="quote container">
-				<p class="quote">
-					"Productivity is less about what you do with your time. And more about how you run your mind."
-				</p>
-				<p class="author">- Robin S. Sharma, Canadian self-help writer</p>
-			</div>
-			<div class="team container">
-				<h1>Our Team</h1>
-				<div class="team">
-					<div class="member">
-						<div class="image"></div>
-						<p>Janet Wilson - <span>Developer</span></p>
-					</div>
-					<div class="member">
-						<div class="image"></div>
-						<p>David Scott - <span>Developer</span></p>
-					</div>
-					<div class="member">
-						<div class="image"></div>
-						<p>Amira Hunter - <span>Developer</span></p>
+		</section>
+		<section class="call-out">
+			<div class="container">
+				<div class="content container">
+					<h1>Simplify your tasks with SimplyTasks</h1>
+					<p>Stay organised and productive with SimplyTasks, the calendar with an integrated to-do list.</p>
+					<div class="button container">
+						<a href="signup.html" class="filled">Signup</a>
 					</div>
 				</div>
+				<div class="overlay"></div>
 			</div>
-
 		</section>
 		<footer class="footer">
 			<a href="index.html" class="logo footer">SimplyTasks</a>
@@ -181,9 +182,9 @@
 				</p>
 			</div>
 		</footer>
+		</div>
 	</div>
 	<script src="js/global.js"></script>
-	<script src="js/about.js"></script>
+	<script src="js/homepage.js"></script>
 </body>
-
 </html>
